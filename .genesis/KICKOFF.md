@@ -4,11 +4,11 @@
 
 - objective: Build a safe report-to-fix workflow for Acadza questions: accurate report triage, constrained edits, faculty review, and a usable deployed demo
 - phase/status: build/active
-- active task: M3-TRIAGE — Generate and review one evidence-backed result for each of the 44 reports
+- active task: M4-CONSOLE — Show a usable faculty queue and readable case details with rendered maths
 - blocker: none
 - next action: Run the task pre-flight.
 - phase instruction: Implement only the active task and prove it against current sources. Check `genesis query . impact PATH` before editing shared code.
-- gates: triage:pass, independent-review:pending
+- gates: console:pass, independent-review:pass
 - recent failures: none
 
 ## Resume
@@ -17,9 +17,9 @@ Load Genesis and official Ponytail full, then run `genesis brief .` for the curr
 Fetch full records with `genesis context . --id ID` only when needed. Do not load project.json or historical proof wholesale.
 Ask the index before reading code: `genesis query . search|scope|callers|callees|impact|path` (`--json` for parsing). Run `genesis query . impact PATH` before editing shared code. Answers are advisory static analysis; `ambiguous` means candidates were not ruled out, so confirm in source.
 Run `genesis serve .` for a live map of the repository when structure is unclear; it reindexes on save and is read-only. Run `genesis index .` if the index is stale and nothing is watching.
-Context fingerprint: 1c7a1a283adb836f4cfe0c1e3dd577b63077beba4c18d98db0e59ecc5da87c82. Use --since only after receiving that full packet; kickoff is not the packet.
-- KNOWLEDGE-51c201db: Complete report claim map
-- DECISION-90de0ce0: Neon Postgres connection foundation
+Context fingerprint: d103bf23542f464cc474e6226d5ad55c173c87e9d686b8e62c2cc7f26f61d737. Use --since only after receiving that full packet; kickoff is not the packet.
 - DECISION-27fa0d91: Sanity-inspired Acadza Review Desk
+- DECISION-3dc5fad2: Use GPT-6 Luna for report triage
+- DECISION-90de0ce0: Neon Postgres connection foundation
 Applicable invariants, active rules, authorization and proof references are in the packet. Truncated summaries are retrieval pointers, not the full evidence.
 Reuse fresh gates with --reuse. Reconcile interrupted attempts before replaying commands. Report state → evidence → blocker → next action; checkpoint before stopping.

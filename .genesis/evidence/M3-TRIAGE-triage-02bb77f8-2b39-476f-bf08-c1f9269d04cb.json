@@ -1,0 +1,30 @@
+{
+  "task": "M3-TRIAGE",
+  "gate": "triage",
+  "kind": "command",
+  "attempt": "02bb77f8-2b39-476f-bf08-c1f9269d04cb",
+  "command": "python3 -m unittest tests.test_triage && python3 scripts/validate_results.py results.json",
+  "started_at": "2026-11-10T13:52:41.541Z",
+  "observed_at": "2026-11-10T13:52:42.031Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "Valid results: 44 reports\n",
+  "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "7df85ba6eb41e9ce6995478f5615af6744eb78bd",
+    "dirty": true
+  },
+  "source_hash": "88285dde09f1af798566196929868a28488a71bc9e84a36f062e53cad6404799",
+  "before_hash": "88285dde09f1af798566196929868a28488a71bc9e84a36f062e53cad6404799",
+  "config_hash": "2a1d445301e4cb9039ad07ccc99e8edb9a066072048c7ca3c4316caafb937845",
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+    "variables": {}
+  },
+  "hash": "0c19bae0800a179aa14b8e898059906a2bf0e59be9fda28aec13e771ea3c2b57"
+}

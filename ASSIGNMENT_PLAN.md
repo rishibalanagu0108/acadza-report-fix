@@ -14,7 +14,7 @@ The stage-by-stage deliverables and checks are in [MILESTONES.md](MILESTONES.md)
 
 ## Candidate implementation (after problem analysis)
 
-The selected implementation is a **batch Python 3 triage script** to produce versioned `results.json` and a **Next.js/TypeScript faculty console** styled with **Tailwind CSS**. The app is scaffolded and connected to **Neon Postgres**; review tables and decision persistence come in Milestone 5. The model runs during batch generation, so the eventual demo can stay usable without credits. The model provider remains open. Website deployment comes in the final milestone.
+The selected implementation is a **batch Python 3 triage script** to produce versioned `results.json` and a **Next.js/TypeScript faculty console** styled with **Tailwind CSS**. The app is connected to **Neon Postgres**; review tables and decision persistence come in Milestone 5. Batch triage uses **OpenAI GPT-6 Luna** to keep inference cost low. The model runs during batch generation, so the demo can stay usable without fresh credits. Website deployment comes in the final milestone.
 
 ```mermaid
 flowchart LR
@@ -110,10 +110,8 @@ The console reads the dataset and generated results server-side. `POST /api/case
 2. **`auto_apply` meaning:** Treat it as *eligible for automatic application after validation*. The batch run should never mutate the supplied source questions. Make this meaning explicit in `PROMPTS.md` and the demo.
 3. **Review persistence and access:** Save decisions and audit history in a hosted database. Use a protected demo reviewer account or another simple access control so public visitors cannot alter shared cases. The exact provider can be chosen when deployment begins.
 
-**We still need information outside this repo:**
+**Confirmed from the email and user choices:** the deadline is Wednesday, 11 November 2026, 11:59 PM IST. Batch triage uses the lower-cost OpenAI GPT-6 Luna model; one successful full run was estimated at about $0.03, with extra usage from failed or interrupted calls possible.
 
-4. **Deadline:** The README says only “as stated in the email.” We need the email's actual date to set a realistic schedule.
-5. **Model access and budget:** We need to know which provider/account is available before choosing the batch inference setup. The product can still be designed without this answer.
-6. **Personal submission answers:** Commitment length, earliest start date, and “why this work, why now?” must come from you and should be written in your own words.
+**Still needed from you for the submission email:** your commitment length, earliest start date, and a 2–3 line answer to “why this work, why now?” These must be in your own words.
 
-The first three are working decisions, open to revision if Acadza clarifies its expectations. The last three cannot be inferred honestly from the supplied files.
+The first three are working decisions, open to revision if Acadza clarifies its expectations. The deadline and current model choice are known; the personal answers still need to come from you.

@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-11-10T11:33:20.458Z",
-    "updated_at": "2026-11-10T13:04:27.964Z"
+    "updated_at": "2026-11-10T14:12:04.960Z"
   },
   "policy": {
     "ponytail": "full",
@@ -25,7 +25,7 @@
   "lifecycle": {
     "phase": "build",
     "status": "active",
-    "active_task": "M3-TRIAGE",
+    "active_task": "M4-CONSOLE",
     "blocker": null,
     "next_action": "Run the task pre-flight."
   },
@@ -442,7 +442,7 @@
     {
       "id": "M3-TRIAGE",
       "outcome": "Generate and review one evidence-backed result for each of the 44 reports",
-      "state": "active",
+      "state": "done",
       "risk": "medium",
       "owner": null,
       "scope": [
@@ -487,11 +487,11 @@
           "mandatory": true,
           "status": "pass",
           "evidence": {
-            "path": ".genesis/evidence/M3-TRIAGE-triage-08830605-f203-4afe-9b8a-f11e934f53d1.json",
-            "hash": "3d7c15813c3a303913f1580cfc54713218e362405dc2776bc41152a218ea191a",
-            "source_hash": "5e1a7b0fc1adfef7db2170d221e14db4e34b0c5104e2b47290d07ad2ffcf717f",
+            "path": ".genesis/evidence/M3-TRIAGE-triage-02bb77f8-2b39-476f-bf08-c1f9269d04cb.json",
+            "hash": "0c19bae0800a179aa14b8e898059906a2bf0e59be9fda28aec13e771ea3c2b57",
+            "source_hash": "88285dde09f1af798566196929868a28488a71bc9e84a36f062e53cad6404799",
             "config_hash": "2a1d445301e4cb9039ad07ccc99e8edb9a066072048c7ca3c4316caafb937845",
-            "observed_at": "2026-11-10T13:04:27.655Z"
+            "observed_at": "2026-11-10T13:52:42.031Z"
           }
         },
         {
@@ -499,8 +499,14 @@
           "kind": "review",
           "command": "",
           "mandatory": true,
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/M3-TRIAGE-independent-review-9be85aa6-88ab-45c7-89c9-3eadb3271643.json",
+            "hash": "4ad7a2079c13021d69f7ba04b58d422fe937eae3b716e10942719242c1eebd5d",
+            "source_hash": "88285dde09f1af798566196929868a28488a71bc9e84a36f062e53cad6404799",
+            "config_hash": "2a1d445301e4cb9039ad07ccc99e8edb9a066072048c7ca3c4316caafb937845",
+            "observed_at": "2026-11-10T13:57:27.986Z"
+          }
         }
       ],
       "next_action": "Run the task pre-flight.",
@@ -509,7 +515,7 @@
       "failures": [],
       "limitations": [],
       "created_at": "2026-11-10T11:45:43.089Z",
-      "updated_at": "2026-11-10T11:45:43.089Z",
+      "updated_at": "2026-11-10T13:57:28.482Z",
       "base_manifest": {
         ".env.example": "f46e8a2f5f442230dcfe78559a9d769fe04e81d5ca717bc20c78b4ee079873c3",
         ".gitignore": "e025d12f50a440b809437f60829bf41855ab5e270f6c566a9c9df236d9ef64c3",
@@ -544,7 +550,7 @@
     {
       "id": "M4-CONSOLE",
       "outcome": "Show a usable faculty queue and readable case details with rendered maths",
-      "state": "queued",
+      "state": "active",
       "risk": "medium",
       "owner": null,
       "scope": [
@@ -585,16 +591,28 @@
           "kind": "command",
           "command": "npm run build && npm run test:console",
           "mandatory": true,
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/M4-CONSOLE-console-eb51a66a-379b-451c-84e7-ea499ae742e4.json",
+            "hash": "f456e21abfdd873a40c9085978d7532c44ff7f07ebbd8b2dcdd3b09ea7c9b214",
+            "source_hash": "45650182119c3182d1ada0ea67b5433181c307551ffb91174df96b92158e37b2",
+            "config_hash": "876df2d84f38a0cffef1ff85d20100d1e634b2594dd2223a81e048208bc8072a",
+            "observed_at": "2026-11-10T14:05:52.692Z"
+          }
         },
         {
           "id": "independent-review",
           "kind": "review",
           "command": "",
           "mandatory": true,
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/M4-CONSOLE-independent-review-af86082b-1a1d-4190-8b89-bc5dc9af8296.json",
+            "hash": "dc4783a6fabfd6abe591b4438917f476edd5f49583425c00f27c3d85f5618816",
+            "source_hash": "45650182119c3182d1ada0ea67b5433181c307551ffb91174df96b92158e37b2",
+            "config_hash": "876df2d84f38a0cffef1ff85d20100d1e634b2594dd2223a81e048208bc8072a",
+            "observed_at": "2026-11-10T14:11:41.343Z"
+          }
         }
       ],
       "next_action": "Run the task pre-flight.",
@@ -603,7 +621,43 @@
       "failures": [],
       "limitations": [],
       "created_at": "2026-11-10T11:45:43.354Z",
-      "updated_at": "2026-11-10T11:45:43.354Z"
+      "updated_at": "2026-11-10T14:12:04.957Z",
+      "base_manifest": {
+        ".env.example": "f46e8a2f5f442230dcfe78559a9d769fe04e81d5ca717bc20c78b4ee079873c3",
+        ".gitignore": "e025d12f50a440b809437f60829bf41855ab5e270f6c566a9c9df236d9ef64c3",
+        "ASSIGNMENT_PLAN.md": "80f232fcd40f2aef30ff3c76bf9277e4c15dfbedad93226f85691e27e33b75b9",
+        "DESIGN.md": "ebc366931df4638afcddfd6fe27e968fed563d6929a1d019fe15496c58f1e97b",
+        "MILESTONES.md": "704bfd4a38f4ba781141bb3460593d57056a8ac48015be8fafe01411b5723583",
+        "PROBLEM_ANALYSIS.md": "821ab924dddf9cffe4d81cd5fe4fa6c8f959e56d12708a8ecb38579b1c4e2116",
+        "PROMPTS.md": "e76cd127d62133fae0e576984d030f33d518489ce9d1644cac16f79b9f2a665e",
+        "README.md": "bfcd60f1147180254fa1eda57ce09be69f404cded7faeccaa31427db8218bff1",
+        "SPEC.md": "4dc185796979c6dcc4f0ebb2fa9127fe1c4107fe84ad746e99d9098cbe0d52f9",
+        "SYSTEM_FLOW.md": "620c6ef777bee1ae56be329cdb144292707dbcfff49e030cb0bf0159ae817489",
+        "app/api/db-check/route.ts": "aec7b2597d047a4ecc8096cdcf7a9be0ba6e653c9fc42e9cc5bb8728067dab15",
+        "app/globals.css": "27b06522a3c6d6940ce9866f701e68a5ea43b405340d6259316184d0b7817989",
+        "app/layout.tsx": "f607076306cb73b15afd406995f15f9120bc2f28fb85028ad64f830c99959bac",
+        "app/page.tsx": "5d3991a34e14c082eb3cc8ca7168e4c1b04e55d915332b8a3c10e363c5349fe5",
+        "data/questions.json": "da174f0613acfeefeff4ac22ce2ad54729eff80456aa94566a57489720d758d5",
+        "data/reports.json": "62babf834fb3baa813a63f0771e58a3d7f0241e126cdbe49612b747272904d63",
+        "data/taxonomy.json": "5d5c32d23046b7f398c090817fd1d2fa47864651d903e13df4a78f1f70622ac3",
+        "lib/db.ts": "aa8156b8c2e773cd54b2a721f8967765e95d731d280e6ea8d9cd9beded473bfa",
+        "neon.ts": "d6fa195043d42693af03a587f491b263a6a7c499f60f3cab9b6f3db847bf681c",
+        "next-env.d.ts": "cf916a02996fd1b8dba4b9de08d07c2b099cd25e5f4ffb84c90e73ef913394fe",
+        "package-lock.json": "5d31759823edbe05b9f7956133d35f32cc4f8ab36480ed957c8c027a371a1e86",
+        "package.json": "d06c019683f1571af8ba70576cef207ff0fccb3290a32e2dba1ba03ffd1ad0c0",
+        "postcss.config.mjs": "fa91b48a6b1771dfaf678c1924b38719bb573379a3b55a9a7372e90eb8a9e675",
+        "prompts/independent_check.md": "5edb5c2de71d4ae6804f6389a733d9937d692ea3b3ecf6ebf84e33e8a62635cc",
+        "prompts/triage.md": "aa2767a9a6da8153b91945bd7930f74f58448bae54c671da99655f5369c51232",
+        "results.json": "885fd9ce0af9bbb73dc79d87623736a1c0fc7d860edae1125c0b086567d891e0",
+        "scripts/safety.py": "32f8c7863c59e93c6d42ef236b72240b848b0c84a0c9278ad8774587ba94d698",
+        "scripts/triage.py": "60a5eba5928a55791ee59f6930cc75126964541b4d403b4561b1494f237b12f8",
+        "scripts/validate_data.py": "265ad0456cbad177442d053bf4504187e7f93d1f9294b522254db4b993418bf3",
+        "scripts/validate_results.py": "85ffc69672a52341515df70766f7fa9f9ae6beb2acd0b558c4af55134d82aa4c",
+        "tests/test_contract.py": "548a86ba9932ae3463db195267230fae08264b383289878c8b45d9d68cbe9ace",
+        "tests/test_safety.py": "61ecce79dc1b7703d1bac69fd146fd1a97b51b2fa20d6787113adc5b636fc75d",
+        "tests/test_triage.py": "fff65f936df867ecc0b22a674abe1330a931110d5c263cdc85b8532ed937b79c",
+        "tsconfig.json": "d28e341d23649bbdddacee78af144439b89e6709b46a682247589a502b4ff3f9"
+      }
     },
     {
       "id": "M5-REVIEW",
@@ -739,6 +793,24 @@
       "task": "M2-SAFETY",
       "human": "Project owner",
       "reason": "User approved the safety checks; reattached approval to freshly rerun proof after baseline reconciliation",
+      "revision": null
+    },
+    {
+      "id": "9be85aa6-88ab-45c7-89c9-3eadb3271643",
+      "at": "2026-11-10T13:57:27.986Z",
+      "action": "approve",
+      "task": "M3-TRIAGE",
+      "human": "Rishik",
+      "reason": "Candidate approved the reconciled 44-report output after reviewing the run comparison; disputed fixes remain for faculty review.",
+      "revision": null
+    },
+    {
+      "id": "af86082b-1a1d-4190-8b89-bc5dc9af8296",
+      "at": "2026-11-10T14:11:41.343Z",
+      "action": "approve",
+      "task": "M4-CONSOLE",
+      "human": "Rishik",
+      "reason": "Owner reviewed and approved the faculty console preview.",
       "revision": null
     }
   ],
@@ -1030,6 +1102,102 @@
       "cost": null,
       "stop_reason": null,
       "ended_at": "2026-11-10T13:04:27.655Z"
+    },
+    {
+      "id": "02bb77f8-2b39-476f-bf08-c1f9269d04cb",
+      "task": "M3-TRIAGE",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_triage && python3 scripts/validate_results.py results.json",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 81474,
+      "child_pid": 81493,
+      "started_at": "2026-11-10T13:52:41.541Z",
+      "status": "passed",
+      "before_hash": "88285dde09f1af798566196929868a28488a71bc9e84a36f062e53cad6404799",
+      "config_hash": "2a1d445301e4cb9039ad07ccc99e8edb9a066072048c7ca3c4316caafb937845",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T13:52:42.031Z"
+    },
+    {
+      "id": "7dd9bb7f-a9aa-41b5-a61a-a9e8e28917a6",
+      "task": "M4-CONSOLE",
+      "kind": "gate",
+      "command": "npm run build && npm run test:console",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 82860,
+      "child_pid": 82877,
+      "started_at": "2026-11-10T14:01:15.338Z",
+      "status": "passed",
+      "before_hash": "1f53e4191a6f6c99b5c741de96166653bad71720f8b5db67bcfd5e64bc88fccf",
+      "config_hash": "876df2d84f38a0cffef1ff85d20100d1e634b2594dd2223a81e048208bc8072a",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T14:01:34.725Z"
+    },
+    {
+      "id": "60f23443-e04d-473c-b290-a39a75089f4d",
+      "task": "M4-CONSOLE",
+      "kind": "gate",
+      "command": "npm run build && npm run test:console",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 83707,
+      "child_pid": 83737,
+      "started_at": "2026-11-10T14:05:09.166Z",
+      "status": "failed",
+      "before_hash": "f21b1ba7f7fce38512277db7123a98d7c08b4b7a5e9879943781da4f3be487b1",
+      "config_hash": "876df2d84f38a0cffef1ff85d20100d1e634b2594dd2223a81e048208bc8072a",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": "source-mutated",
+      "ended_at": "2026-11-10T14:05:24.329Z"
+    },
+    {
+      "id": "eb51a66a-379b-451c-84e7-ea499ae742e4",
+      "task": "M4-CONSOLE",
+      "kind": "gate",
+      "command": "npm run build && npm run test:console",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 84055,
+      "child_pid": 84072,
+      "started_at": "2026-11-10T14:05:32.753Z",
+      "status": "passed",
+      "before_hash": "45650182119c3182d1ada0ea67b5433181c307551ffb91174df96b92158e37b2",
+      "config_hash": "876df2d84f38a0cffef1ff85d20100d1e634b2594dd2223a81e048208bc8072a",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T14:05:52.692Z"
     }
   ],
   "authorizations": [],
@@ -1037,13 +1205,13 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-11-10T13:04:27.938Z",
+    "at": "2026-11-10T14:05:57.748Z",
     "revision": {
-      "commit": "43e0479ce72f17bf1dd0c7fda2475ed815eb8c8e",
+      "commit": "7df85ba6eb41e9ce6995478f5615af6744eb78bd",
       "dirty": true,
-      "source_hash": "5e1a7b0fc1adfef7db2170d221e14db4e34b0c5104e2b47290d07ad2ffcf717f"
+      "source_hash": "45650182119c3182d1ada0ea67b5433181c307551ffb91174df96b92158e37b2"
     },
-    "active_task": "M3-TRIAGE",
+    "active_task": "M4-CONSOLE",
     "next_action": "Run the task pre-flight."
   },
   "legacy": null

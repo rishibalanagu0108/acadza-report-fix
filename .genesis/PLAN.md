@@ -26,18 +26,18 @@
 
 ### M3-TRIAGE — Generate and review one evidence-backed result for each of the 44 reports
 
-- state/risk: active / medium
+- state/risk: done / medium
 - requirements: FR-2, FR-4, FR-6, NFR-6, AC-3
 - scope: scripts/triage.py, prompts, results.json, PROMPTS.md, tests/test_triage.py
-- gates: triage: python3 -m unittest tests.test_triage && python3 scripts/validate_results.py results.json, independent-review: pending
+- gates: triage: python3 -m unittest tests.test_triage && python3 scripts/validate_results.py results.json, independent-review: pass
 - next: Run the task pre-flight.
 
 ### M4-CONSOLE — Show a usable faculty queue and readable case details with rendered maths
 
-- state/risk: queued / medium
+- state/risk: active / medium
 - requirements: FR-7, FR-8, NFR-3, NFR-5, AC-4
 - scope: app, components, tests/console
-- gates: console: npm run build && npm run test:console, independent-review: pending
+- gates: console: npm run build && npm run test:console, independent-review: pass
 - next: Run the task pre-flight.
 
 ### M5-REVIEW — Persist faculty approve, edit, reject, and audit history

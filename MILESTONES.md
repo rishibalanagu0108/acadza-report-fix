@@ -64,6 +64,8 @@ flowchart LR
 
 **Goal:** Deliver the complete assignment in the form Acadza requested.
 
+**Deadline from the email:** Wednesday, 11 November 2026, 11:59 PM IST.
+
 **What we produce:** A public GitHub repo with code and `results.json`, a live website that works without fresh AI credits, `PROMPTS.md`, a one-page `PRODUCT.md`, and a 3-minute screen recording. The submission email includes the three links and the requested personal answers.
 
 **Done when:** A fresh visitor can open the website, follow the demo, and inspect the repository; the live URL remains available for seven days; and every required deliverable is present.
@@ -80,4 +82,4 @@ flowchart TD
     E --> F[Start the next milestone]
 ```
 
-Milestone 0 has produced the architecture diagram and a claim map for all 44 reports. The next implementation slice is Milestone 1, after the checked Genesis plan is reviewed. Detailed case verification continues in Milestone 3.
+Milestones 0–3 are complete. Milestone 4's console is implemented and its build/data checks pass; it is waiting for owner review. Milestones 5–6 remain: save faculty decisions and audit history, then finish the submission artifacts, deploy, record the walkthrough, and submit before the email deadline.

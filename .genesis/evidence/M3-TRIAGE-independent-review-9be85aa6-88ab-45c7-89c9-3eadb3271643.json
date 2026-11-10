@@ -1,0 +1,13 @@
+{
+  "task": "M3-TRIAGE",
+  "gate": "independent-review",
+  "kind": "review",
+  "attempt": "9be85aa6-88ab-45c7-89c9-3eadb3271643",
+  "human": "Rishik",
+  "reason": "Candidate approved the reconciled 44-report output after reviewing the run comparison; disputed fixes remain for faculty review.",
+  "observed_at": "2026-11-10T13:57:27.986Z",
+  "source_hash": "88285dde09f1af798566196929868a28488a71bc9e84a36f062e53cad6404799",
+  "config_hash": "2a1d445301e4cb9039ad07ccc99e8edb9a066072048c7ca3c4316caafb937845",
+  "reviewed_proofs": "9f9bc7d6d1f9295b278b004d6c90db753d17d2f3a50cdfc1de7c2bcdbeb260fc",
+  "hash": "4ad7a2079c13021d69f7ba04b58d422fe937eae3b716e10942719242c1eebd5d"
+}

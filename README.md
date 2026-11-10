@@ -121,11 +121,11 @@ Questions? Reply to the email. Good luck. We're excited to see what you build.
 
 ## Local app setup
 
-The Next.js and Tailwind CSS app currently provides a read-only Neon Postgres connection check. The faculty queue and persisted decisions are planned milestones; this setup does not create review tables or run the triage model.
+The Next.js and Tailwind CSS app shows the precomputed triage results in a read-only faculty queue. It does not make new model calls or change the supplied questions. Neon currently provides a database connection check; saved faculty decisions and their history are planned for Milestone 5.
 
 1. Run `npm install`.
 2. Run `neon init -y --org-id org-lucky-mountain-97308818 --project-id still-hall-65689277 --branch production --services postgres`, then `neon deploy`. The CLI writes the connection details to the ignored `.env.local` file.
-3. Add the model key later as `LLM_API_KEY` in `.env.local` when its provider is chosen. Never commit the key. See [.env.example](.env.example) for variable names.
+3. For a new batch triage run, set `OPENAI_API_KEY` or `LLM_API_KEY` in the ignored `.env.local`. The checker uses GPT-6 Luna. The faculty console itself needs no model key because it reads `results.json`. Never commit the key. See [.env.example](.env.example) for variable names.
 4. Run `npm run build` and `npm run start`. `GET /api/db-check` returns `{"service":"postgres","connected":true}` when the app reaches Neon.
 
 Website deployment is reserved for the final submission milestone.

@@ -3,7 +3,72 @@
 @theme {
   --color-shell: #111315;
   --color-paper: #fcfbf8;
+  --color-canvas: #f2f0ec;
   --color-coral: #f36458;
   --color-ink: #202322;
   --color-muted: #626a68;
+  --color-amber: #9a6417;
+  --color-teal: #087c6f;
+  --color-red: #b83b3b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.question-copy {
+  overflow-wrap: anywhere;
+}
+
+.question-copy > :first-child {
+  margin-top: 0;
+}
+
+.question-copy > :last-child {
+  margin-bottom: 0;
+}
+
+.question-copy h1,
+.question-copy h2,
+.question-copy h3,
+.question-copy h4,
+.question-copy p {
+  margin-block: 0.75em;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.question-copy math {
+  max-width: 100%;
+  font-size: 1.02em;
+}
+
+.question-copy img,
+.question-copy table {
+  max-width: 100%;
+}
+
+.question-copy table {
+  border-collapse: collapse;
+}
+
+.question-copy td,
+.question-copy th {
+  padding: 0.35rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

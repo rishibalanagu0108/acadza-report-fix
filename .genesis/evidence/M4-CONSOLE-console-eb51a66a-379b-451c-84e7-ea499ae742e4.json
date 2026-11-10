@@ -1,0 +1,30 @@
+{
+  "task": "M4-CONSOLE",
+  "gate": "console",
+  "kind": "command",
+  "attempt": "eb51a66a-379b-451c-84e7-ea499ae742e4",
+  "command": "npm run build && npm run test:console",
+  "started_at": "2026-11-10T14:05:32.753Z",
+  "observed_at": "2026-11-10T14:05:52.692Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "\n> build\n> next build\n\n▲ Next.js 16.4.6 (Turbopack)\n- Environments: .env.local\n✓ Running next.config took 59ms\n\n  Creating an optimized production build ...\n✓ Compiled successfully in 2.4s\n  Running TypeScript ...\n  Finished TypeScript in 1081ms ...\n  Collecting page data using 5 workers ...\n  Generating static pages using 5 workers (0/3) ...\n✓ Generating static pages using 5 workers (3/3) in 4.5s\n  Finalizing page optimization ...\n\nRoute (app)\n┌ ƒ /\n├ ○ /_not-found\n└ ƒ /api/db-check\n\n\n○  (Static)   prerendered as static content\nƒ  (Dynamic)  server-rendered on demand\n\n\n> test:console\n> node --test tests/console.test.mjs\n\n✔ every triage result joins to one source report and question (33.728121ms)\n✔ question markup is sanitized while MathML stays renderable (66.558426ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 4129.602511\n",
+  "stderr": "",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "7df85ba6eb41e9ce6995478f5615af6744eb78bd",
+    "dirty": true
+  },
+  "source_hash": "45650182119c3182d1ada0ea67b5433181c307551ffb91174df96b92158e37b2",
+  "before_hash": "45650182119c3182d1ada0ea67b5433181c307551ffb91174df96b92158e37b2",
+  "config_hash": "876df2d84f38a0cffef1ff85d20100d1e634b2594dd2223a81e048208bc8072a",
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+    "variables": {}
+  },
+  "hash": "f456e21abfdd873a40c9085978d7532c44ff7f07ebbd8b2dcdd3b09ea7c9b214"
+}
