@@ -1,5 +1,9 @@
 import Link from "next/link";
+import DOMPurify from "isomorphic-dompurify";
+import { ReviewActions } from "../components/review-actions";
 import { getReviewCases } from "../lib/review-data";
+import { getProposal, getProposalVersion, reviewedValue } from "../lib/reviews/logic";
+import { getDecisionBundle } from "../lib/reviews/store";
 
 type SearchParams = Promise<{ q?: string; route?: string; question?: string; report?: string }>;
 
@@ -25,6 +29,10 @@ function hrefFor(params: { q: string; route: string; question?: string; report?:
   return `/${suffix ? `?${suffix}` : ""}${params.question ? "#case-detail" : ""}`;
 }
 
+function formatTime(value: string | Date) {
+  return new Date(value).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" });
+}
+
 export default async function Home({ searchParams }: { searchParams: SearchParams }) {
   const params = await searchParams;
   const query = (params.q ?? "").trim().toLowerCase();
@@ -44,6 +52,21 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     cases[0];
   const activeReport =
     activeCase?.reports.find((report) => report.id === params.report) ?? activeCase?.reports[0];
+  const proposalVersion = activeReport ? getProposalVersion(activeReport.id) : null;
+  let reviewBundle: Awaited<ReturnType<typeof getDecisionBundle>> | null = null;
+  if (activeReport) {
+    try {
+      reviewBundle = await getDecisionBundle(activeReport.id);
+    } catch {
+      reviewBundle = null;
+    }
+  }
+  const savedDecision = reviewBundle?.decision ?? null;
+  const decisionIsStale = !!savedDecision && savedDecision.proposal_version !== proposalVersion;
+  const currentDecision = savedDecision && !decisionIsStale ? savedDecision : null;
+  const reviewed = currentDecision && ["approve", "edit"].includes(currentDecision.action)
+    ? reviewedValue(activeCase?.questionId ?? "", currentDecision.final_edit)
+    : null;
   const routeCounts = Object.fromEntries(
     ["faculty_review", "auto_apply", "no_change"].map((route) => [
       route,
@@ -179,6 +202,20 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
                     <summary className="cursor-pointer text-sm font-medium marker:text-coral">Open saved solution</summary>
                     <div className="question-copy mt-4 text-[15px] leading-7" dangerouslySetInnerHTML={{ __html: activeCase.solutionHtml }} />
                   </details>
+                  {reviewed && (
+                    <section className="mt-6 border-t border-teal/20 pt-5">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <p className="text-[11px] font-semibold tracking-[0.12em] text-teal">APPROVED DEMO VERSION</p>
+                        <span className="border border-teal/20 bg-teal/5 px-2 py-0.5 text-[10px] font-medium text-teal">{reviewed.field}</span>
+                      </div>
+                      {reviewed.field === "question" || reviewed.field === "solution" ? (
+                        <div className="question-copy mt-3 text-[15px] leading-7" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(reviewed.value) }} />
+                      ) : (
+                        <p className="mt-3 break-words font-mono text-base font-semibold">{reviewed.value}</p>
+                      )}
+                      <p className="mt-3 text-xs leading-relaxed text-muted">This approved version is shown in the demo. The supplied source files remain unchanged.</p>
+                    </section>
+                  )}
                 </section>
 
                 <section aria-labelledby="reports-heading" className="mt-7">
@@ -261,6 +298,43 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
                   <h3 className="text-xs font-semibold tracking-[0.1em] text-muted">STUDENT REPLY PREVIEW</h3>
                   <blockquote className="mt-2 border-l border-ink/20 pl-3 text-sm leading-relaxed text-ink/80">{activeReport.studentReply}</blockquote>
                 </section>
+                {currentDecision ? (
+                  <section className="mt-6 border-t border-ink/10 pt-5">
+                    <h3 className="text-xs font-semibold tracking-[0.1em] text-muted">CURRENT DECISION</h3>
+                    <p className="mt-2 text-sm font-semibold capitalize">{currentDecision.action}{currentDecision.action === "reject" ? " · source unchanged" : " · saved"}</p>
+                    <p className="mt-1 text-xs text-muted">{currentDecision.reviewer_name} · {formatTime(currentDecision.decided_at)}</p>
+                    {currentDecision.reason && <p className="mt-2 text-sm leading-relaxed">{currentDecision.reason}</p>}
+                  </section>
+                ) : decisionIsStale ? (
+                  <p className="mt-6 border-t border-amber/20 pt-4 text-sm leading-relaxed text-amber">An earlier decision is out of date because this proposal changed. It has not been applied to the demo version.</p>
+                ) : null}
+
+                {reviewBundle ? (
+                  <ReviewActions
+                    key={activeReport.id}
+                    reportId={activeReport.id}
+                    proposalVersion={proposalVersion ?? ""}
+                    edit={getProposal(activeReport.id)?.edit ?? null}
+                    initialReviewerName={currentDecision?.reviewer_name ?? savedDecision?.reviewer_name ?? ""}
+                  />
+                ) : (
+                  <p className="mt-6 border-t border-ink/10 pt-4 text-xs leading-relaxed text-muted">Review saving is unavailable right now. The report and proposed change are still available to inspect.</p>
+                )}
+
+                {reviewBundle && reviewBundle.events.length > 0 && (
+                  <section className="mt-6 border-t border-ink/10 pt-5">
+                    <h3 className="text-xs font-semibold tracking-[0.1em] text-muted">REVIEW HISTORY</h3>
+                    <ol className="mt-3 space-y-3">
+                      {reviewBundle.events.map((event) => (
+                        <li key={event.audit_id} className="border-l border-ink/15 pl-3">
+                          <p className="text-sm font-medium capitalize">{event.action} · {event.reviewer_name}</p>
+                          <p className="mt-0.5 text-[11px] text-muted">{formatTime(event.recorded_at)}</p>
+                          {event.reason && <p className="mt-1 text-xs leading-relaxed text-muted">{event.reason}</p>}
+                        </li>
+                      ))}
+                    </ol>
+                  </section>
+                )}
                 <p className="mt-6 border-t border-ink/10 pt-4 text-xs leading-relaxed text-muted">AI suggestions need faculty judgment before a question is changed.</p>
               </div>
             </aside>

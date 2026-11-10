@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test:console": "node --test tests/console.test.mjs"
+    "test:console": "node --test tests/console.test.mjs",
+    "test:review": "node --experimental-strip-types --test tests/review/*.test.mts"
   },
   "dependencies": {
     "@neon/config": "^1.14.0",
