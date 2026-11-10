@@ -1,5 +1,6 @@
 import Link from "next/link";
 import DOMPurify from "isomorphic-dompurify";
+import { CaseSearch } from "../components/case-search";
 import { ReviewActions } from "../components/review-actions";
 import { getReviewCases } from "../lib/review-data";
 import { getProposal, getProposalVersion, reviewedValue } from "../lib/reviews/logic";
@@ -105,19 +106,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
               <p className="text-sm text-muted">44 student reports across 39 questions</p>
             </div>
           </div>
-            <form action="/" className="flex w-full max-w-md items-center gap-2 lg:w-auto">
-            {routeFilter !== "all" && <input type="hidden" name="route" value={routeFilter} />}
-            <label className="sr-only" htmlFor="case-search">Search reports</label>
-            <input
-              id="case-search"
-              type="search"
-              name="q"
-              defaultValue={params.q ?? ""}
-              placeholder="Search question, report, or comment"
-              className="h-10 min-w-0 flex-1 border border-ink/15 bg-white px-3 text-sm outline-none placeholder:text-muted/70 focus:border-coral focus:ring-2 focus:ring-coral/20 lg:w-80"
-            />
-            <button className="h-10 border border-ink/15 px-4 text-sm font-medium hover:bg-canvas focus-visible:outline-2 focus-visible:outline-coral">Search</button>
-          </form>
+            <CaseSearch initialQuery={params.q ?? ""} routeFilter={routeFilter} />
         </div>
       </section>
 
