@@ -8,9 +8,9 @@ Build a reproducible triage run for the supplied reports, a faculty console that
 
 The supplied snapshot has **43 questions**, **44 reports**, **39 reported question IDs**, and **4 questions with no reports**. Each report points to a question in the snapshot. Questions have a `questionType` (`scq`, `mcq`, or `integerQuestion`), with `question`, `solution`, and `answer` nested under the matching type key. The HTML includes inline MathML and sometimes messy markup. The taxonomy is a closed set: 7 verdicts and 18 repair types. Some MCQ `answer` values have inconsistent shapes, including `["", "B"]` and `["A, B, D"]`; normalize for reasoning, but preserve the original value when proposing a change.
 
-This directory currently has the brief, data, and planning documents; it is not yet a Git repository. Initialize Git when implementation begins so prompt iterations, failures, and decisions can be recorded accurately. The scoring weights favor triage/safety (35 points), console and product thinking (40), and prompt documentation (15), so reserve time for manual case review and the faculty experience rather than spending it all on infrastructure.
+This directory is tracked in Git so prompt iterations, failures, and decisions can be recorded accurately. The scoring weights favor triage/safety (35 points), console and product thinking (40), and prompt documentation (15), so reserve time for manual case review and the faculty experience rather than spending it all on infrastructure.
 
-The stage-by-stage deliverables and checks are in [MILESTONES.md](MILESTONES.md). [PROBLEM_ANALYSIS.md](PROBLEM_ANALYSIS.md) now maps all 44 reports into 39 question cases. The checked Genesis implementation plan is in [.genesis/PLAN.md](.genesis/PLAN.md); product code begins only after that plan is reviewed.
+The stage-by-stage deliverables and checks are in [MILESTONES.md](MILESTONES.md). [PROBLEM_ANALYSIS.md](PROBLEM_ANALYSIS.md) now maps all 44 reports into 39 question cases. The faculty console's visual and interaction direction is in [DESIGN.md](DESIGN.md). The checked Genesis implementation plan is in [.genesis/PLAN.md](.genesis/PLAN.md).
 
 ## Candidate implementation (after problem analysis)
 
