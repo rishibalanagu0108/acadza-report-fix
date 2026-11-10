@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-11-10T11:33:20.458Z",
-    "updated_at": "2026-11-10T15:49:18.775Z"
+    "updated_at": "2026-11-10T17:55:51.867Z"
   },
   "policy": {
     "ponytail": "full",
@@ -204,6 +204,16 @@
       "status": "accepted",
       "source": "User request to use the cheaper model 2026-11-10; https://developers.openai.com/api/docs/models/gpt-6-luna; PROMPTS.md",
       "recorded_at": "2026-11-10T13:04:14.720Z",
+      "paths": [],
+      "tags": []
+    },
+    {
+      "id": "DECISION-f4b14498",
+      "title": "Pin jsdom for Vercel runtime",
+      "text": "Vercel production logs showed isomorphic-dompurify loading jsdom 29.1.1, whose CommonJS dependency chain requires ESM-only @exodus/bytes and fails during SSR. Keep DOMPurify sanitization and override jsdom to 25.0.1, the documented workaround, so the deployed review page can render.",
+      "status": "accepted",
+      "source": "Vercel production runtime logs 2026-11-10; https://github.com/kkomelin/isomorphic-dompurify#known-issues",
+      "recorded_at": "2026-11-10T17:55:51.476Z",
       "paths": [],
       "tags": []
     }
@@ -793,7 +803,9 @@
         "PROMPTS.md",
         "PRODUCT.md",
         "scripts/check_submission.py",
-        "README.md"
+        "README.md",
+        "package.json",
+        "package-lock.json"
       ],
       "dependencies": [
         "M5-REVIEW"
@@ -830,7 +842,9 @@
       ],
       "next_action": "Run the task pre-flight.",
       "blocker": null,
-      "notes": [],
+      "notes": [
+        "Expanded scope for the Vercel SSR dependency fix required by the evaluator-open deployment scenario; decision recorded in Genesis."
+      ],
       "failures": [],
       "limitations": [],
       "created_at": "2026-11-10T11:45:43.883Z",
@@ -1403,11 +1417,11 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-11-10T15:49:18.730Z",
+    "at": "2026-11-10T17:55:51.827Z",
     "revision": {
-      "commit": "a116db28432842f0b267451ee5df80d5c964b788",
+      "commit": "fe3e9dbdf20ec0c3e0ba2e26689d2724a5216402",
       "dirty": true,
-      "source_hash": "7ef0190fef53d1b361d0b58c84779411f5d73383788f2caa1e51b73ce021845b"
+      "source_hash": "a4f6e1e66d2adff954243ff48055774445e3a78b7da8b698135ad1cf0771ba58"
     },
     "active_task": "M6-SUBMIT",
     "next_action": "Run the task pre-flight."

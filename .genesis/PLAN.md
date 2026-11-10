@@ -52,7 +52,7 @@
 
 - state/risk: active / low
 - requirements: FR-10, FR-11, AC-6
-- scope: PROMPTS.md, PRODUCT.md, scripts/check_submission.py, README.md
+- scope: PROMPTS.md, PRODUCT.md, scripts/check_submission.py, README.md, package.json, package-lock.json
 - gates: submission: python3 scripts/check_submission.py && npm run build
 - next: Run the task pre-flight.
 

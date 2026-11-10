@@ -24,5 +24,10 @@
     "postcss": "^8.5.32",
     "tailwindcss": "^4.3.5",
     "typescript": "^7.0.2"
+  },
+  "overrides": {
+    "isomorphic-dompurify": {
+      "jsdom": "25.0.1"
+    }
   }
 }
