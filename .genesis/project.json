@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-11-10T11:33:20.458Z",
-    "updated_at": "2026-11-10T12:32:34.741Z"
+    "updated_at": "2026-11-10T12:50:42.795Z"
   },
   "policy": {
     "ponytail": "full",
@@ -25,7 +25,7 @@
   "lifecycle": {
     "phase": "build",
     "status": "active",
-    "active_task": "M2-SAFETY",
+    "active_task": "M3-TRIAGE",
     "blocker": null,
     "next_action": "Run the task pre-flight."
   },
@@ -186,6 +186,16 @@
       "recorded_at": "2026-11-10T12:32:30.833Z",
       "paths": [],
       "tags": []
+    },
+    {
+      "id": "DECISION-22df50fb",
+      "title": "Reconcile M2 baseline after authorized setup work",
+      "text": "The owner separately requested the design document and Neon app setup while M2-SAFETY was active; these are committed in 58e250e and ce67289. They are outside M2 source scope, so rebase only M2 base_manifest to the current committed repository snapshot before closure. Keep M2 scope and its safety code unchanged. This is a harness bookkeeping correction for already authorized work.",
+      "status": "accepted",
+      "source": "User approval of M2 safety checks; commits 58e250e and ce67289",
+      "recorded_at": "2026-11-10T12:50:28.893Z",
+      "paths": [],
+      "tags": []
     }
   ],
   "knowledge": [
@@ -318,7 +328,7 @@
     {
       "id": "M2-SAFETY",
       "outcome": "Reject unsafe or out-of-scope proposed question edits before routing",
-      "state": "active",
+      "state": "done",
       "risk": "medium",
       "owner": null,
       "scope": [
@@ -359,11 +369,11 @@
           "mandatory": true,
           "status": "pass",
           "evidence": {
-            "path": ".genesis/evidence/M2-SAFETY-safety-4237d653-fafa-4265-8e9f-b0867f488484.json",
-            "hash": "28e107c8717f1b140c717bf4f5a7e37f9465c64e0240f0b99dbeb11664e062d9",
+            "path": ".genesis/evidence/M2-SAFETY-safety-764c8a62-2f44-473c-8a9a-8c311f38298c.json",
+            "hash": "9e0d782211faedfd5f5e86b56a1e9b5d10fa80b5b558edb0fb2cce26a17ea2dd",
             "source_hash": "2e4d58967c12d08807216175f1e29fb2477c2c25c75203b1e9436d90e2061d04",
             "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
-            "observed_at": "2026-11-10T12:32:34.493Z"
+            "observed_at": "2026-11-10T12:50:37.509Z"
           }
         },
         {
@@ -371,8 +381,14 @@
           "kind": "review",
           "command": "",
           "mandatory": true,
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/M2-SAFETY-independent-review-d72aeca3-4239-42b6-af9b-a8ea8106ca96.json",
+            "hash": "b77876635a0559d091bfdb6445c8031cd94f20c4da5fa2faf7b2f022ba3a8ac1",
+            "source_hash": "2e4d58967c12d08807216175f1e29fb2477c2c25c75203b1e9436d90e2061d04",
+            "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
+            "observed_at": "2026-11-10T12:50:42.188Z"
+          }
         }
       ],
       "next_action": "Run the task pre-flight.",
@@ -381,29 +397,42 @@
       "failures": [],
       "limitations": [],
       "created_at": "2026-11-10T11:45:42.845Z",
-      "updated_at": "2026-11-10T11:45:42.846Z",
+      "updated_at": "2026-11-10T12:50:42.553Z",
       "base_manifest": {
-        ".concord/concord.db": "0a7afd2317a6cabd6ec89aef86b58b098b48ef646c6b03728529f00871651f8d",
-        ".concord/concord.db-shm": "98c37227de0d7b8e5f31301af59689306aff3a7303aa63b38d9fc494842ba7b6",
-        ".concord/concord.db-wal": "163f816bd2b246fc8b5eec74d541d7ea5cae6c9327099f2b45e6f24b8daa2b33",
-        "ASSIGNMENT_PLAN.md": "c1d4384114dd5d0cd7d0a061cdd44af34062bd7f1a13e9a4fb4092b6853cd92c",
+        ".env.example": "f46e8a2f5f442230dcfe78559a9d769fe04e81d5ca717bc20c78b4ee079873c3",
+        ".gitignore": "e025d12f50a440b809437f60829bf41855ab5e270f6c566a9c9df236d9ef64c3",
+        "ASSIGNMENT_PLAN.md": "80f232fcd40f2aef30ff3c76bf9277e4c15dfbedad93226f85691e27e33b75b9",
+        "DESIGN.md": "ebc366931df4638afcddfd6fe27e968fed563d6929a1d019fe15496c58f1e97b",
         "MILESTONES.md": "704bfd4a38f4ba781141bb3460593d57056a8ac48015be8fafe01411b5723583",
         "PROBLEM_ANALYSIS.md": "821ab924dddf9cffe4d81cd5fe4fa6c8f959e56d12708a8ecb38579b1c4e2116",
-        "README.md": "1ca5c315b29207df631bc6a57b22a43782a5df4996bfa05af7c592aad9b4be58",
+        "README.md": "bfcd60f1147180254fa1eda57ce09be69f404cded7faeccaa31427db8218bff1",
         "SPEC.md": "4dc185796979c6dcc4f0ebb2fa9127fe1c4107fe84ad746e99d9098cbe0d52f9",
         "SYSTEM_FLOW.md": "620c6ef777bee1ae56be329cdb144292707dbcfff49e030cb0bf0159ae817489",
+        "app/api/db-check/route.ts": "aec7b2597d047a4ecc8096cdcf7a9be0ba6e653c9fc42e9cc5bb8728067dab15",
+        "app/globals.css": "27b06522a3c6d6940ce9866f701e68a5ea43b405340d6259316184d0b7817989",
+        "app/layout.tsx": "f607076306cb73b15afd406995f15f9120bc2f28fb85028ad64f830c99959bac",
+        "app/page.tsx": "5d3991a34e14c082eb3cc8ca7168e4c1b04e55d915332b8a3c10e363c5349fe5",
         "data/questions.json": "da174f0613acfeefeff4ac22ce2ad54729eff80456aa94566a57489720d758d5",
         "data/reports.json": "62babf834fb3baa813a63f0771e58a3d7f0241e126cdbe49612b747272904d63",
         "data/taxonomy.json": "5d5c32d23046b7f398c090817fd1d2fa47864651d903e13df4a78f1f70622ac3",
+        "lib/db.ts": "aa8156b8c2e773cd54b2a721f8967765e95d731d280e6ea8d9cd9beded473bfa",
+        "neon.ts": "d6fa195043d42693af03a587f491b263a6a7c499f60f3cab9b6f3db847bf681c",
+        "next-env.d.ts": "cf916a02996fd1b8dba4b9de08d07c2b099cd25e5f4ffb84c90e73ef913394fe",
+        "package-lock.json": "5d31759823edbe05b9f7956133d35f32cc4f8ab36480ed957c8c027a371a1e86",
+        "package.json": "d06c019683f1571af8ba70576cef207ff0fccb3290a32e2dba1ba03ffd1ad0c0",
+        "postcss.config.mjs": "fa91b48a6b1771dfaf678c1924b38719bb573379a3b55a9a7372e90eb8a9e675",
+        "scripts/safety.py": "32f8c7863c59e93c6d42ef236b72240b848b0c84a0c9278ad8774587ba94d698",
         "scripts/validate_data.py": "265ad0456cbad177442d053bf4504187e7f93d1f9294b522254db4b993418bf3",
         "scripts/validate_results.py": "85ffc69672a52341515df70766f7fa9f9ae6beb2acd0b558c4af55134d82aa4c",
-        "tests/test_contract.py": "548a86ba9932ae3463db195267230fae08264b383289878c8b45d9d68cbe9ace"
+        "tests/test_contract.py": "548a86ba9932ae3463db195267230fae08264b383289878c8b45d9d68cbe9ace",
+        "tests/test_safety.py": "61ecce79dc1b7703d1bac69fd146fd1a97b51b2fa20d6787113adc5b636fc75d",
+        "tsconfig.json": "d28e341d23649bbdddacee78af144439b89e6709b46a682247589a502b4ff3f9"
       }
     },
     {
       "id": "M3-TRIAGE",
       "outcome": "Generate and review one evidence-backed result for each of the 44 reports",
-      "state": "queued",
+      "state": "active",
       "risk": "medium",
       "owner": null,
       "scope": [
@@ -464,7 +493,37 @@
       "failures": [],
       "limitations": [],
       "created_at": "2026-11-10T11:45:43.089Z",
-      "updated_at": "2026-11-10T11:45:43.089Z"
+      "updated_at": "2026-11-10T11:45:43.089Z",
+      "base_manifest": {
+        ".env.example": "f46e8a2f5f442230dcfe78559a9d769fe04e81d5ca717bc20c78b4ee079873c3",
+        ".gitignore": "e025d12f50a440b809437f60829bf41855ab5e270f6c566a9c9df236d9ef64c3",
+        "ASSIGNMENT_PLAN.md": "80f232fcd40f2aef30ff3c76bf9277e4c15dfbedad93226f85691e27e33b75b9",
+        "DESIGN.md": "ebc366931df4638afcddfd6fe27e968fed563d6929a1d019fe15496c58f1e97b",
+        "MILESTONES.md": "704bfd4a38f4ba781141bb3460593d57056a8ac48015be8fafe01411b5723583",
+        "PROBLEM_ANALYSIS.md": "821ab924dddf9cffe4d81cd5fe4fa6c8f959e56d12708a8ecb38579b1c4e2116",
+        "README.md": "bfcd60f1147180254fa1eda57ce09be69f404cded7faeccaa31427db8218bff1",
+        "SPEC.md": "4dc185796979c6dcc4f0ebb2fa9127fe1c4107fe84ad746e99d9098cbe0d52f9",
+        "SYSTEM_FLOW.md": "620c6ef777bee1ae56be329cdb144292707dbcfff49e030cb0bf0159ae817489",
+        "app/api/db-check/route.ts": "aec7b2597d047a4ecc8096cdcf7a9be0ba6e653c9fc42e9cc5bb8728067dab15",
+        "app/globals.css": "27b06522a3c6d6940ce9866f701e68a5ea43b405340d6259316184d0b7817989",
+        "app/layout.tsx": "f607076306cb73b15afd406995f15f9120bc2f28fb85028ad64f830c99959bac",
+        "app/page.tsx": "5d3991a34e14c082eb3cc8ca7168e4c1b04e55d915332b8a3c10e363c5349fe5",
+        "data/questions.json": "da174f0613acfeefeff4ac22ce2ad54729eff80456aa94566a57489720d758d5",
+        "data/reports.json": "62babf834fb3baa813a63f0771e58a3d7f0241e126cdbe49612b747272904d63",
+        "data/taxonomy.json": "5d5c32d23046b7f398c090817fd1d2fa47864651d903e13df4a78f1f70622ac3",
+        "lib/db.ts": "aa8156b8c2e773cd54b2a721f8967765e95d731d280e6ea8d9cd9beded473bfa",
+        "neon.ts": "d6fa195043d42693af03a587f491b263a6a7c499f60f3cab9b6f3db847bf681c",
+        "next-env.d.ts": "cf916a02996fd1b8dba4b9de08d07c2b099cd25e5f4ffb84c90e73ef913394fe",
+        "package-lock.json": "5d31759823edbe05b9f7956133d35f32cc4f8ab36480ed957c8c027a371a1e86",
+        "package.json": "d06c019683f1571af8ba70576cef207ff0fccb3290a32e2dba1ba03ffd1ad0c0",
+        "postcss.config.mjs": "fa91b48a6b1771dfaf678c1924b38719bb573379a3b55a9a7372e90eb8a9e675",
+        "scripts/safety.py": "32f8c7863c59e93c6d42ef236b72240b848b0c84a0c9278ad8774587ba94d698",
+        "scripts/validate_data.py": "265ad0456cbad177442d053bf4504187e7f93d1f9294b522254db4b993418bf3",
+        "scripts/validate_results.py": "85ffc69672a52341515df70766f7fa9f9ae6beb2acd0b558c4af55134d82aa4c",
+        "tests/test_contract.py": "548a86ba9932ae3463db195267230fae08264b383289878c8b45d9d68cbe9ace",
+        "tests/test_safety.py": "61ecce79dc1b7703d1bac69fd146fd1a97b51b2fa20d6787113adc5b636fc75d",
+        "tsconfig.json": "d28e341d23649bbdddacee78af144439b89e6709b46a682247589a502b4ff3f9"
+      }
     },
     {
       "id": "M4-CONSOLE",
@@ -647,7 +706,26 @@
   ],
   "learning_proposals": [],
   "cleanup_proposals": [],
-  "controls": [],
+  "controls": [
+    {
+      "id": "3f9b4bf8-55aa-4b93-8224-502f1849a728",
+      "at": "2026-11-10T12:47:27.673Z",
+      "action": "approve",
+      "task": "M2-SAFETY",
+      "human": "Project owner",
+      "reason": "User explicitly approved the safety checks after reviewing the project overview",
+      "revision": null
+    },
+    {
+      "id": "d72aeca3-4239-42b6-af9b-a8ea8106ca96",
+      "at": "2026-11-10T12:50:42.188Z",
+      "action": "approve",
+      "task": "M2-SAFETY",
+      "human": "Project owner",
+      "reason": "User approved the safety checks; reattached approval to freshly rerun proof after baseline reconciliation",
+      "revision": null
+    }
+  ],
   "attempts": [
     {
       "id": "f6b1fed4-304d-4e2c-9005-f1a26b0ed301",
@@ -840,6 +918,54 @@
       "cost": null,
       "stop_reason": null,
       "ended_at": "2026-11-10T12:32:34.493Z"
+    },
+    {
+      "id": "f3415e12-807c-4a06-9ee4-fd7a55bd0ec4",
+      "task": "M2-SAFETY",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_safety",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 73785,
+      "child_pid": 73812,
+      "started_at": "2026-11-10T12:47:24.772Z",
+      "status": "passed",
+      "before_hash": "2e4d58967c12d08807216175f1e29fb2477c2c25c75203b1e9436d90e2061d04",
+      "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T12:47:25.334Z"
+    },
+    {
+      "id": "764c8a62-2f44-473c-8a9a-8c311f38298c",
+      "task": "M2-SAFETY",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_safety",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 74320,
+      "child_pid": 74341,
+      "started_at": "2026-11-10T12:50:36.996Z",
+      "status": "passed",
+      "before_hash": "2e4d58967c12d08807216175f1e29fb2477c2c25c75203b1e9436d90e2061d04",
+      "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T12:50:37.509Z"
     }
   ],
   "authorizations": [],
@@ -847,13 +973,13 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-11-10T12:32:34.707Z",
+    "at": "2026-11-10T12:50:42.760Z",
     "revision": {
-      "commit": "58e250eff4170a70d70f1b95c9a0d2009ed584bf",
+      "commit": "ce67289e93151970e5a7571bacdf1696869b6ba6",
       "dirty": true,
       "source_hash": "2e4d58967c12d08807216175f1e29fb2477c2c25c75203b1e9436d90e2061d04"
     },
-    "active_task": "M2-SAFETY",
+    "active_task": "M3-TRIAGE",
     "next_action": "Run the task pre-flight."
   },
   "legacy": null

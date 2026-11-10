@@ -1,0 +1,13 @@
+{
+  "task": "M2-SAFETY",
+  "gate": "independent-review",
+  "kind": "review",
+  "attempt": "d72aeca3-4239-42b6-af9b-a8ea8106ca96",
+  "human": "Project owner",
+  "reason": "User approved the safety checks; reattached approval to freshly rerun proof after baseline reconciliation",
+  "observed_at": "2026-11-10T12:50:42.188Z",
+  "source_hash": "2e4d58967c12d08807216175f1e29fb2477c2c25c75203b1e9436d90e2061d04",
+  "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
+  "reviewed_proofs": "bd8d374eb4c3870065e95060b6d68e42f64495bb5453ae7fddf17eff289acd36",
+  "hash": "b77876635a0559d091bfdb6445c8031cd94f20c4da5fa2faf7b2f022ba3a8ac1"
+}

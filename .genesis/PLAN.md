@@ -18,15 +18,15 @@
 
 ### M2-SAFETY — Reject unsafe or out-of-scope proposed question edits before routing
 
-- state/risk: active / medium
+- state/risk: done / medium
 - requirements: FR-5, NFR-1, NFR-2, AC-2, AC-7
 - scope: scripts/safety.py, tests/test_safety.py
-- gates: safety: python3 -m unittest tests.test_safety, independent-review: pending
+- gates: safety: python3 -m unittest tests.test_safety, independent-review: pass
 - next: Run the task pre-flight.
 
 ### M3-TRIAGE — Generate and review one evidence-backed result for each of the 44 reports
 
-- state/risk: queued / medium
+- state/risk: active / medium
 - requirements: FR-2, FR-4, FR-6, NFR-6, AC-3
 - scope: scripts/triage.py, prompts, results.json, PROMPTS.md, tests/test_triage.py
 - gates: triage: python3 -m unittest tests.test_triage && python3 scripts/validate_results.py results.json, independent-review: pending

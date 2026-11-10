@@ -1,0 +1,13 @@
+{
+  "task": "M2-SAFETY",
+  "gate": "independent-review",
+  "kind": "review",
+  "attempt": "3f9b4bf8-55aa-4b93-8224-502f1849a728",
+  "human": "Project owner",
+  "reason": "User explicitly approved the safety checks after reviewing the project overview",
+  "observed_at": "2026-11-10T12:47:27.673Z",
+  "source_hash": "2e4d58967c12d08807216175f1e29fb2477c2c25c75203b1e9436d90e2061d04",
+  "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
+  "reviewed_proofs": "bba1c7a31f555a409c2931a9f2d7c4db5146550b7a915058333458b49e1e06df",
+  "hash": "bd5fa70e5b9f66d9c705783879019b31374e8f19f09a9948acc3083afde8e74e"
+}

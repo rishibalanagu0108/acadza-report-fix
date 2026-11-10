@@ -4,11 +4,11 @@
 
 - objective: Build a safe report-to-fix workflow for Acadza questions: accurate report triage, constrained edits, faculty review, and a usable deployed demo
 - phase/status: build/active
-- active task: M2-SAFETY — Reject unsafe or out-of-scope proposed question edits before routing
+- active task: M3-TRIAGE — Generate and review one evidence-backed result for each of the 44 reports
 - blocker: none
 - next action: Run the task pre-flight.
 - phase instruction: Implement only the active task and prove it against current sources. Check `genesis query . impact PATH` before editing shared code.
-- gates: safety:pass, independent-review:pending
+- gates: triage:pending, independent-review:pending
 - recent failures: none
 
 ## Resume
@@ -17,9 +17,9 @@ Load Genesis and official Ponytail full, then run `genesis brief .` for the curr
 Fetch full records with `genesis context . --id ID` only when needed. Do not load project.json or historical proof wholesale.
 Ask the index before reading code: `genesis query . search|scope|callers|callees|impact|path` (`--json` for parsing). Run `genesis query . impact PATH` before editing shared code. Answers are advisory static analysis; `ambiguous` means candidates were not ruled out, so confirm in source.
 Run `genesis serve .` for a live map of the repository when structure is unclear; it reindexes on save and is read-only. Run `genesis index .` if the index is stale and nothing is watching.
-Context fingerprint: f8b7d41b7b76cdd2ba4f0b0e68f31473f958f39416c787c4d1cfb4b4ec013556. Use --since only after receiving that full packet; kickoff is not the packet.
-- DECISION-27fa0d91: Sanity-inspired Acadza Review Desk
-- DECISION-c31279e9: Automatic edits require matching independent verification
+Context fingerprint: d647bc5037af841425ea60e9ba0dc5cc9e1fe8293b42c503fd3ed553d5b611aa. Use --since only after receiving that full packet; kickoff is not the packet.
 - KNOWLEDGE-51c201db: Complete report claim map
+- DECISION-90de0ce0: Neon Postgres connection foundation
+- DECISION-27fa0d91: Sanity-inspired Acadza Review Desk
 Applicable invariants, active rules, authorization and proof references are in the packet. Truncated summaries are retrieval pointers, not the full evidence.
 Reuse fresh gates with --reuse. Reconcile interrupted attempts before replaying commands. Report state → evidence → blocker → next action; checkpoint before stopping.
