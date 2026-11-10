@@ -1,0 +1,13 @@
+.concord/
+.genesis/local/
+.genesis/index/
+.genesis/dashboard.html
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+node_modules/
+.next/
+dist/

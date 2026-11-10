@@ -1,0 +1,758 @@
+{
+  "schema_version": 2,
+  "project": {
+    "name": "acadza-report-fix",
+    "mode": "init",
+    "profile": "prototype",
+    "objective": "Build a safe report-to-fix workflow for Acadza questions: accurate report triage, constrained edits, faculty review, and a usable deployed demo",
+    "constraints": [],
+    "non_goals": [],
+    "trust_boundary": "local repository",
+    "created_at": "2026-11-10T11:33:20.458Z",
+    "updated_at": "2026-11-10T11:57:26.332Z"
+  },
+  "policy": {
+    "ponytail": "full",
+    "autonomy": "human-in-the-loop",
+    "learned_rule_promotion": "human-required",
+    "cleanup": "propose-only",
+    "traces": {
+      "storage": "local",
+      "commit_raw": false,
+      "redact_secrets": true
+    }
+  },
+  "lifecycle": {
+    "phase": "build",
+    "status": "active",
+    "active_task": "M2-SAFETY",
+    "blocker": null,
+    "next_action": "Run the task pre-flight."
+  },
+  "commands": {},
+  "workflow": {
+    "type": "new-product",
+    "started_at": "2026-11-10T11:33:20.460Z",
+    "spec_check": {
+      "at": "2026-11-10T11:34:09.361Z",
+      "source_hash": "9bf76b1e86309eb75773661c6ee7a4d70e210467434f4dcb69105e3bc68f06ca",
+      "requirements": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-4",
+        "AC-5",
+        "AC-6",
+        "AC-7",
+        "FR-1",
+        "FR-10",
+        "FR-11",
+        "FR-2",
+        "FR-3",
+        "FR-4",
+        "FR-5",
+        "FR-6",
+        "FR-7",
+        "FR-8",
+        "FR-9",
+        "NFR-1",
+        "NFR-2",
+        "NFR-3",
+        "NFR-4",
+        "NFR-5",
+        "NFR-6"
+      ]
+    },
+    "plan_check": {
+      "at": "2026-11-10T11:46:18.135Z",
+      "source_hash": "897f479772f43b75136763b84ec4d48f945596238bf76519d1b73c2e316e69b1"
+    },
+    "plan_approval": {
+      "human": "Project owner",
+      "reason": "User answered Okay to the explicit request to approve the checked six-task implementation plan",
+      "at": "2026-11-10T11:53:59.997Z",
+      "source_hash": "897f479772f43b75136763b84ec4d48f945596238bf76519d1b73c2e316e69b1"
+    }
+  },
+  "artifacts": [
+    {
+      "id": "SPEC-1",
+      "type": "specification",
+      "path": "SPEC.md",
+      "status": "approved",
+      "requirements": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-4",
+        "AC-5",
+        "AC-6",
+        "AC-7",
+        "FR-1",
+        "FR-10",
+        "FR-11",
+        "FR-2",
+        "FR-3",
+        "FR-4",
+        "FR-5",
+        "FR-6",
+        "FR-7",
+        "FR-8",
+        "FR-9",
+        "NFR-1",
+        "NFR-2",
+        "NFR-3",
+        "NFR-4",
+        "NFR-5",
+        "NFR-6"
+      ],
+      "source_hash": "9bf76b1e86309eb75773661c6ee7a4d70e210467434f4dcb69105e3bc68f06ca",
+      "approval": {
+        "human": "Project owner",
+        "reason": "User said Okay let us go to the next steps after reviewing the checked specification and revised architecture diagram",
+        "at": "2026-11-10T11:45:12.323Z",
+        "source_hash": "9bf76b1e86309eb75773661c6ee7a4d70e210467434f4dcb69105e3bc68f06ca"
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "ASSUMPTION-1f4691f0",
+      "text": "Treat auto_apply as eligibility after validation, not proof that Acadza production data was changed.",
+      "status": "open",
+      "source": "README.md; ASSIGNMENT_PLAN.md",
+      "recorded_at": "2026-11-10T11:34:09.171Z",
+      "paths": [],
+      "tags": []
+    }
+  ],
+  "invariants": [
+    {
+      "id": "INVARIANT-b596baff",
+      "text": "Student comments are untrusted report data and must never override system instructions or directly authorize a question edit.",
+      "source": "README.md; data/reports.json:R027",
+      "recorded_at": "2026-11-10T11:34:08.807Z",
+      "paths": [],
+      "tags": []
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DECISION-4af47a4a",
+      "title": "Problem-first discovery",
+      "text": "Complete the end-to-end flow and inspect representative report cases before choosing model orchestration or implementation stack.",
+      "status": "accepted",
+      "source": "MILESTONES.md; PROBLEM_ANALYSIS.md",
+      "recorded_at": "2026-11-10T11:34:08.979Z",
+      "paths": [],
+      "tags": []
+    },
+    {
+      "id": "DECISION-c31279e9",
+      "title": "Automatic edits require matching independent verification",
+      "text": "The deterministic safety gate defaults defect edits to faculty review. It permits auto_apply only for an exact, unique, allowed edit confirmed by a separate independent edit; structural markup and MCQ answer changes remain faculty review.",
+      "status": "accepted",
+      "source": "scripts/safety.py; tests/test_safety.py",
+      "recorded_at": "2026-11-10T11:57:02.161Z",
+      "paths": [],
+      "tags": []
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "KNOWLEDGE-7d4f731e",
+      "title": "Assignment source and dataset",
+      "text": "README.md requires 44 triage results, a faculty review console, prompt and product documents, live URL, and walkthrough. data/ contains 43 questions, 44 reports, and a closed taxonomy.",
+      "source": "README.md; data/questions.json; data/reports.json; data/taxonomy.json",
+      "tags": [],
+      "recorded_at": "2026-11-10T11:34:08.619Z",
+      "paths": []
+    },
+    {
+      "id": "KNOWLEDGE-51c201db",
+      "title": "Complete report claim map",
+      "text": "PROBLEM_ANALYSIS.md now maps all 44 supplied reports into 39 question cases, with the student claim and evidence needed for each. This map does not assert final verdicts.",
+      "source": "PROBLEM_ANALYSIS.md; data/reports.json",
+      "tags": [],
+      "recorded_at": "2026-11-10T11:44:56.081Z",
+      "paths": []
+    }
+  ],
+  "tasks": [
+    {
+      "id": "SPEC-1",
+      "outcome": "Produce an approved, implementation-ready product specification",
+      "state": "done",
+      "risk": "medium",
+      "owner": null,
+      "scope": [
+        "SPEC.md"
+      ],
+      "dependencies": [],
+      "requirements": [],
+      "gates": [
+        {
+          "id": "independent-review",
+          "command": "",
+          "mandatory": true,
+          "status": "pass",
+          "evidence": {
+            "human": "Project owner",
+            "reason": "User said Okay let us go to the next steps after reviewing the checked specification and revised architecture diagram",
+            "source_hash": "1a36fc19ddea8d489d9b614b17110ed215ea3693399e721b0b7cea0d6bbd7d65",
+            "observed_at": "2026-11-10T11:45:12.323Z"
+          },
+          "kind": "review"
+        }
+      ],
+      "next_action": "Interview the human, record durable context, and replace every placeholder in SPEC.md.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-11-10T11:33:20.460Z",
+      "updated_at": "2026-11-10T11:45:12.323Z"
+    },
+    {
+      "id": "M1-CONTRACT",
+      "outcome": "Validate the supplied data and define a stable scored result contract",
+      "state": "done",
+      "risk": "low",
+      "owner": null,
+      "scope": [
+        "scripts/validate_data.py",
+        "scripts/validate_results.py",
+        "tests/test_contract.py"
+      ],
+      "dependencies": [],
+      "requirements": [
+        "FR-1",
+        "FR-3",
+        "AC-1"
+      ],
+      "inputs": [
+        "data/questions.json",
+        "data/reports.json",
+        "data/taxonomy.json"
+      ],
+      "environment": [],
+      "scenarios": [
+        {
+          "id": "input-contract",
+          "actor": "developer",
+          "scope": "dataset and result schema",
+          "environment": "local repository",
+          "duration": "one validation run",
+          "observable": "all source reports link to questions and invalid result rows fail",
+          "gate": "contract"
+        }
+      ],
+      "gates": [
+        {
+          "id": "contract",
+          "kind": "command",
+          "command": "python3 -m unittest tests.test_contract",
+          "mandatory": true,
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/M1-CONTRACT-contract-7f058bd8-3ea9-40e2-95b7-dc4f7bcfa37c.json",
+            "hash": "7b9ae8fa0509bec1c72b5eb745bf39f3aada290a562f384e2d83b70f999bd542",
+            "source_hash": "ea391e75694beae804ac239e77010d47d2e2fd836ccba37cf5d1517e13ac96f5",
+            "config_hash": "5ae479d10f8cd91782fa5fb9985a56b8a80e7663086a166b64b7f195159c0e37",
+            "observed_at": "2026-11-10T11:55:23.450Z"
+          }
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-11-10T11:45:42.537Z",
+      "updated_at": "2026-11-10T11:55:23.731Z",
+      "base_manifest": {
+        ".concord/concord.db": "0a7afd2317a6cabd6ec89aef86b58b098b48ef646c6b03728529f00871651f8d",
+        ".concord/concord.db-shm": "98c37227de0d7b8e5f31301af59689306aff3a7303aa63b38d9fc494842ba7b6",
+        ".concord/concord.db-wal": "163f816bd2b246fc8b5eec74d541d7ea5cae6c9327099f2b45e6f24b8daa2b33",
+        "ASSIGNMENT_PLAN.md": "c1d4384114dd5d0cd7d0a061cdd44af34062bd7f1a13e9a4fb4092b6853cd92c",
+        "MILESTONES.md": "704bfd4a38f4ba781141bb3460593d57056a8ac48015be8fafe01411b5723583",
+        "PROBLEM_ANALYSIS.md": "821ab924dddf9cffe4d81cd5fe4fa6c8f959e56d12708a8ecb38579b1c4e2116",
+        "README.md": "1ca5c315b29207df631bc6a57b22a43782a5df4996bfa05af7c592aad9b4be58",
+        "SPEC.md": "4dc185796979c6dcc4f0ebb2fa9127fe1c4107fe84ad746e99d9098cbe0d52f9",
+        "SYSTEM_FLOW.md": "620c6ef777bee1ae56be329cdb144292707dbcfff49e030cb0bf0159ae817489",
+        "data/questions.json": "da174f0613acfeefeff4ac22ce2ad54729eff80456aa94566a57489720d758d5",
+        "data/reports.json": "62babf834fb3baa813a63f0771e58a3d7f0241e126cdbe49612b747272904d63",
+        "data/taxonomy.json": "5d5c32d23046b7f398c090817fd1d2fa47864651d903e13df4a78f1f70622ac3"
+      }
+    },
+    {
+      "id": "M2-SAFETY",
+      "outcome": "Reject unsafe or out-of-scope proposed question edits before routing",
+      "state": "active",
+      "risk": "medium",
+      "owner": null,
+      "scope": [
+        "scripts/safety.py",
+        "tests/test_safety.py"
+      ],
+      "dependencies": [
+        "M1-CONTRACT"
+      ],
+      "requirements": [
+        "FR-5",
+        "NFR-1",
+        "NFR-2",
+        "AC-2",
+        "AC-7"
+      ],
+      "inputs": [
+        "data/taxonomy.json",
+        "data/reports.json"
+      ],
+      "environment": [],
+      "scenarios": [
+        {
+          "id": "unsafe-edit",
+          "actor": "triage runner",
+          "scope": "proposed edit validation",
+          "environment": "local batch run",
+          "duration": "one report decision",
+          "observable": "forbidden field and R027 instruction cannot become automatic edits",
+          "gate": "safety"
+        }
+      ],
+      "gates": [
+        {
+          "id": "safety",
+          "kind": "command",
+          "command": "python3 -m unittest tests.test_safety",
+          "mandatory": true,
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/M2-SAFETY-safety-9c594332-5395-4519-9018-39af7d6c1c3c.json",
+            "hash": "8d802eb01b558d0b3c533df3bceb03560342231f8b358100c7252517fac054ec",
+            "source_hash": "a49670a5d0056d3923f58d67c9def727f0174920516c3057d14eb845ae7f6528",
+            "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
+            "observed_at": "2026-11-10T11:57:23.164Z"
+          }
+        },
+        {
+          "id": "independent-review",
+          "kind": "review",
+          "command": "",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-11-10T11:45:42.845Z",
+      "updated_at": "2026-11-10T11:45:42.846Z",
+      "base_manifest": {
+        ".concord/concord.db": "0a7afd2317a6cabd6ec89aef86b58b098b48ef646c6b03728529f00871651f8d",
+        ".concord/concord.db-shm": "98c37227de0d7b8e5f31301af59689306aff3a7303aa63b38d9fc494842ba7b6",
+        ".concord/concord.db-wal": "163f816bd2b246fc8b5eec74d541d7ea5cae6c9327099f2b45e6f24b8daa2b33",
+        "ASSIGNMENT_PLAN.md": "c1d4384114dd5d0cd7d0a061cdd44af34062bd7f1a13e9a4fb4092b6853cd92c",
+        "MILESTONES.md": "704bfd4a38f4ba781141bb3460593d57056a8ac48015be8fafe01411b5723583",
+        "PROBLEM_ANALYSIS.md": "821ab924dddf9cffe4d81cd5fe4fa6c8f959e56d12708a8ecb38579b1c4e2116",
+        "README.md": "1ca5c315b29207df631bc6a57b22a43782a5df4996bfa05af7c592aad9b4be58",
+        "SPEC.md": "4dc185796979c6dcc4f0ebb2fa9127fe1c4107fe84ad746e99d9098cbe0d52f9",
+        "SYSTEM_FLOW.md": "620c6ef777bee1ae56be329cdb144292707dbcfff49e030cb0bf0159ae817489",
+        "data/questions.json": "da174f0613acfeefeff4ac22ce2ad54729eff80456aa94566a57489720d758d5",
+        "data/reports.json": "62babf834fb3baa813a63f0771e58a3d7f0241e126cdbe49612b747272904d63",
+        "data/taxonomy.json": "5d5c32d23046b7f398c090817fd1d2fa47864651d903e13df4a78f1f70622ac3",
+        "scripts/validate_data.py": "265ad0456cbad177442d053bf4504187e7f93d1f9294b522254db4b993418bf3",
+        "scripts/validate_results.py": "85ffc69672a52341515df70766f7fa9f9ae6beb2acd0b558c4af55134d82aa4c",
+        "tests/test_contract.py": "548a86ba9932ae3463db195267230fae08264b383289878c8b45d9d68cbe9ace"
+      }
+    },
+    {
+      "id": "M3-TRIAGE",
+      "outcome": "Generate and review one evidence-backed result for each of the 44 reports",
+      "state": "queued",
+      "risk": "medium",
+      "owner": null,
+      "scope": [
+        "scripts/triage.py",
+        "prompts",
+        "results.json",
+        "PROMPTS.md",
+        "tests/test_triage.py"
+      ],
+      "dependencies": [
+        "M2-SAFETY"
+      ],
+      "requirements": [
+        "FR-2",
+        "FR-4",
+        "FR-6",
+        "NFR-6",
+        "AC-3"
+      ],
+      "inputs": [
+        "data/questions.json",
+        "data/reports.json",
+        "data/taxonomy.json"
+      ],
+      "environment": [],
+      "scenarios": [
+        {
+          "id": "full-batch",
+          "actor": "triage runner",
+          "scope": "44 student reports",
+          "environment": "local batch run",
+          "duration": "one complete run",
+          "observable": "44 valid results with grouped duplicate reports and separate replies",
+          "gate": "triage"
+        }
+      ],
+      "gates": [
+        {
+          "id": "triage",
+          "kind": "command",
+          "command": "python3 -m unittest tests.test_triage && python3 scripts/validate_results.py results.json",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        },
+        {
+          "id": "independent-review",
+          "kind": "review",
+          "command": "",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-11-10T11:45:43.089Z",
+      "updated_at": "2026-11-10T11:45:43.089Z"
+    },
+    {
+      "id": "M4-CONSOLE",
+      "outcome": "Show a usable faculty queue and readable case details with rendered maths",
+      "state": "queued",
+      "risk": "medium",
+      "owner": null,
+      "scope": [
+        "app",
+        "components",
+        "tests/console"
+      ],
+      "dependencies": [
+        "M3-TRIAGE"
+      ],
+      "requirements": [
+        "FR-7",
+        "FR-8",
+        "NFR-3",
+        "NFR-5",
+        "AC-4"
+      ],
+      "inputs": [
+        "results.json",
+        "data/questions.json",
+        "data/reports.json"
+      ],
+      "environment": [],
+      "scenarios": [
+        {
+          "id": "faculty-read",
+          "actor": "faculty reviewer",
+          "scope": "queue and one case",
+          "environment": "laptop and phone browser",
+          "duration": "one review session",
+          "observable": "question renders and original versus proposed change is readable",
+          "gate": "console"
+        }
+      ],
+      "gates": [
+        {
+          "id": "console",
+          "kind": "command",
+          "command": "npm run build && npm run test:console",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        },
+        {
+          "id": "independent-review",
+          "kind": "review",
+          "command": "",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-11-10T11:45:43.354Z",
+      "updated_at": "2026-11-10T11:45:43.354Z"
+    },
+    {
+      "id": "M5-REVIEW",
+      "outcome": "Persist faculty approve, edit, reject, and audit history",
+      "state": "queued",
+      "risk": "medium",
+      "owner": null,
+      "scope": [
+        "app/api",
+        "lib/reviews",
+        "tests/review"
+      ],
+      "dependencies": [
+        "M4-CONSOLE"
+      ],
+      "requirements": [
+        "FR-9",
+        "NFR-4",
+        "AC-5"
+      ],
+      "inputs": [
+        "results.json",
+        "data/taxonomy.json"
+      ],
+      "environment": [],
+      "scenarios": [
+        {
+          "id": "faculty-action",
+          "actor": "faculty reviewer",
+          "scope": "one case decision",
+          "environment": "live review site",
+          "duration": "one action and page reload",
+          "observable": "approval edit and rejection each retain a correct audit record",
+          "gate": "review"
+        }
+      ],
+      "gates": [
+        {
+          "id": "review",
+          "kind": "command",
+          "command": "npm run test:review",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        },
+        {
+          "id": "independent-review",
+          "kind": "review",
+          "command": "",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-11-10T11:45:43.623Z",
+      "updated_at": "2026-11-10T11:45:43.623Z"
+    },
+    {
+      "id": "M6-SUBMIT",
+      "outcome": "Deploy a credit-independent demo and assemble every required submission artifact",
+      "state": "queued",
+      "risk": "low",
+      "owner": null,
+      "scope": [
+        "PROMPTS.md",
+        "PRODUCT.md",
+        "scripts/check_submission.py",
+        "README.md"
+      ],
+      "dependencies": [
+        "M5-REVIEW"
+      ],
+      "requirements": [
+        "FR-10",
+        "FR-11",
+        "AC-6"
+      ],
+      "inputs": [
+        "results.json"
+      ],
+      "environment": [],
+      "scenarios": [
+        {
+          "id": "evaluator-open",
+          "actor": "assignment evaluator",
+          "scope": "public repo and deployed console",
+          "environment": "fresh browser without model credits",
+          "duration": "one walkthrough",
+          "observable": "site loads and all submission artifacts and links are present",
+          "gate": "submission"
+        }
+      ],
+      "gates": [
+        {
+          "id": "submission",
+          "kind": "command",
+          "command": "python3 scripts/check_submission.py && npm run build",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-11-10T11:45:43.883Z",
+      "updated_at": "2026-11-10T11:45:43.884Z"
+    }
+  ],
+  "learning_proposals": [],
+  "cleanup_proposals": [],
+  "controls": [],
+  "attempts": [
+    {
+      "id": "f6b1fed4-304d-4e2c-9005-f1a26b0ed301",
+      "task": "M1-CONTRACT",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_contract",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 65670,
+      "child_pid": 65685,
+      "started_at": "2026-11-10T11:54:51.853Z",
+      "status": "passed",
+      "before_hash": "416a300c566ea8feecbf38d8b55e2a42402191c41ccf06aabc36b2cba085a6aa",
+      "config_hash": "5ae479d10f8cd91782fa5fb9985a56b8a80e7663086a166b64b7f195159c0e37",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T11:54:52.540Z"
+    },
+    {
+      "id": "7f058bd8-3ea9-40e2-95b7-dc4f7bcfa37c",
+      "task": "M1-CONTRACT",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_contract",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 65842,
+      "child_pid": 65859,
+      "started_at": "2026-11-10T11:55:22.774Z",
+      "status": "passed",
+      "before_hash": "ea391e75694beae804ac239e77010d47d2e2fd836ccba37cf5d1517e13ac96f5",
+      "config_hash": "5ae479d10f8cd91782fa5fb9985a56b8a80e7663086a166b64b7f195159c0e37",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T11:55:23.449Z"
+    },
+    {
+      "id": "bba88338-2c0f-4cb5-933b-367579dfd2ca",
+      "task": "M2-SAFETY",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_safety",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 66139,
+      "child_pid": 66155,
+      "started_at": "2026-11-10T11:56:50.457Z",
+      "status": "passed",
+      "before_hash": "ca942b67d1746c1d66ad10708921f31e1cda3db89077270673a38d11584f0fcc",
+      "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T11:56:50.689Z"
+    },
+    {
+      "id": "8d92f52d-646a-4ca4-a3a8-8f01bdbda0dc",
+      "task": "M2-SAFETY",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_safety",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 66190,
+      "child_pid": 66259,
+      "started_at": "2026-11-10T11:57:02.859Z",
+      "status": "passed",
+      "before_hash": "ca942b67d1746c1d66ad10708921f31e1cda3db89077270673a38d11584f0fcc",
+      "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T11:57:03.130Z"
+    },
+    {
+      "id": "9c594332-5395-4519-9018-39af7d6c1c3c",
+      "task": "M2-SAFETY",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_safety",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 66298,
+      "child_pid": 66320,
+      "started_at": "2026-11-10T11:57:22.862Z",
+      "status": "passed",
+      "before_hash": "a49670a5d0056d3923f58d67c9def727f0174920516c3057d14eb845ae7f6528",
+      "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T11:57:23.163Z"
+    }
+  ],
+  "authorizations": [],
+  "experiments": [],
+  "incidents": [],
+  "discovery": null,
+  "checkpoint": {
+    "at": "2026-11-10T11:57:26.304Z",
+    "revision": {
+      "commit": null,
+      "dirty": null,
+      "source_hash": "a49670a5d0056d3923f58d67c9def727f0174920516c3057d14eb845ae7f6528"
+    },
+    "active_task": "M2-SAFETY",
+    "next_action": "Run the task pre-flight."
+  },
+  "legacy": null
+}

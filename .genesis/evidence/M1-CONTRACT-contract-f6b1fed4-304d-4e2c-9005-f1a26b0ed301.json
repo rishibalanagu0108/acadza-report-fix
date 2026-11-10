@@ -1,0 +1,30 @@
+{
+  "task": "M1-CONTRACT",
+  "gate": "contract",
+  "kind": "command",
+  "attempt": "f6b1fed4-304d-4e2c-9005-f1a26b0ed301",
+  "command": "python3 -m unittest tests.test_contract",
+  "started_at": "2026-11-10T11:54:51.853Z",
+  "observed_at": "2026-11-10T11:54:52.540Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "",
+  "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.368s\n\nOK\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": null,
+    "dirty": null
+  },
+  "source_hash": "416a300c566ea8feecbf38d8b55e2a42402191c41ccf06aabc36b2cba085a6aa",
+  "before_hash": "416a300c566ea8feecbf38d8b55e2a42402191c41ccf06aabc36b2cba085a6aa",
+  "config_hash": "5ae479d10f8cd91782fa5fb9985a56b8a80e7663086a166b64b7f195159c0e37",
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+    "variables": {}
+  },
+  "hash": "c80bf30aeea20d7c81d6495940eea84004bbe84759f9350e9be41b4cbea4c324"
+}
