@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-11-10T11:33:20.458Z",
-    "updated_at": "2026-11-10T14:38:43.853Z"
+    "updated_at": "2026-11-10T15:34:46.493Z"
   },
   "policy": {
     "ponytail": "full",
@@ -711,11 +711,11 @@
           "mandatory": true,
           "status": "pass",
           "evidence": {
-            "path": ".genesis/evidence/M5-REVIEW-review-360585df-c7b3-4aa8-bb9a-c14f99741f08.json",
-            "hash": "640d7d08d59e588888f0c0a2b0cc6a13f0c3815dffa65402bd0fb55bf6b42103",
-            "source_hash": "7cdb5a381d24ced3538dbea4b2df39ae100d11bf63a86646e5db76265d5ab667",
+            "path": ".genesis/evidence/M5-REVIEW-review-34ad9a49-b7d1-43da-8f1a-3b317201e406.json",
+            "hash": "2d05e5985a017c44d462dca984b489b29f1519a731ab6c031573596e95bdf084",
+            "source_hash": "327227a043aeabdedc33d2961aa71464552796a1d1d616f969b527cc74cccff3",
             "config_hash": "9538ae2450f5ae1b3b9c2b18fda69348db929a46d5a0e024ec57529e282e140a",
-            "observed_at": "2026-11-10T14:38:43.833Z"
+            "observed_at": "2026-11-10T15:33:17.577Z"
           }
         },
         {
@@ -1311,6 +1311,30 @@
       "cost": null,
       "stop_reason": null,
       "ended_at": "2026-11-10T14:38:43.833Z"
+    },
+    {
+      "id": "34ad9a49-b7d1-43da-8f1a-3b317201e406",
+      "task": "M5-REVIEW",
+      "kind": "gate",
+      "command": "npm run test:review",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 98749,
+      "child_pid": 98788,
+      "started_at": "2026-11-10T15:33:16.452Z",
+      "status": "passed",
+      "before_hash": "327227a043aeabdedc33d2961aa71464552796a1d1d616f969b527cc74cccff3",
+      "config_hash": "9538ae2450f5ae1b3b9c2b18fda69348db929a46d5a0e024ec57529e282e140a",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T15:33:17.576Z"
     }
   ],
   "authorizations": [],
@@ -1318,11 +1342,11 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-11-10T14:16:36.431Z",
+    "at": "2026-11-10T15:34:46.448Z",
     "revision": {
-      "commit": "2242d9a76842201dc8130245c72653f281f8627a",
+      "commit": "139b2a488e7cb365841bb3b4b85e0bf797c5232e",
       "dirty": true,
-      "source_hash": "45650182119c3182d1ada0ea67b5433181c307551ffb91174df96b92158e37b2"
+      "source_hash": "327227a043aeabdedc33d2961aa71464552796a1d1d616f969b527cc74cccff3"
     },
     "active_task": "M5-REVIEW",
     "next_action": "Run the task pre-flight."
