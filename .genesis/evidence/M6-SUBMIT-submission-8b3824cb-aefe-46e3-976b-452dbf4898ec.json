@@ -1,0 +1,30 @@
+{
+  "task": "M6-SUBMIT",
+  "gate": "submission",
+  "kind": "command",
+  "attempt": "8b3824cb-aefe-46e3-976b-452dbf4898ec",
+  "command": "python3 scripts/check_submission.py && npm run build",
+  "started_at": "2026-11-10T17:59:46.330Z",
+  "observed_at": "2026-11-10T17:59:56.867Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "Submission checks passed: 44 reports and all required files are present.\n\n> build\n> next build\n\n▲ Next.js 16.4.6 (Turbopack)\n- Environments: .env.local\n✓ Running next.config took 22ms\n\n  Creating an optimized production build ...\n✓ Compiled successfully in 732ms\n  Running TypeScript ...\n  Finished TypeScript in 579ms ...\n  Collecting page data using 6 workers ...\n  Generating static pages using 6 workers (0/3) ...\n✓ Generating static pages using 6 workers (3/3) in 3.1s\n  Finalizing page optimization ...\n\nRoute (app)\n┌ ƒ /\n├ ○ /_not-found\n├ ƒ /api/db-check\n└ ƒ /api/reviews/[reportId]\n\n\n○  (Static)   prerendered as static content\nƒ  (Dynamic)  server-rendered on demand\n\n",
+  "stderr": "",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "6042474983eea6efeb526140e8e125396ba188e0",
+    "dirty": true
+  },
+  "source_hash": "6a0969a0e2d60683d4bba775b364b52479e2fc371103cfd228ce9fcbc9334292",
+  "before_hash": "6a0969a0e2d60683d4bba775b364b52479e2fc371103cfd228ce9fcbc9334292",
+  "config_hash": "5d70e9fe74a5def57811bf36b29ded285607654f4d8420f99d1a499c2ff8edd9",
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+    "variables": {}
+  },
+  "hash": "043b1756a4db06dadcab2b3383627081687abfc80393ce6220175a7971a6d1d1"
+}

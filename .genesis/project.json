@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-11-10T11:33:20.458Z",
-    "updated_at": "2026-11-10T17:55:51.867Z"
+    "updated_at": "2026-11-10T18:00:04.304Z"
   },
   "policy": {
     "ponytail": "full",
@@ -803,9 +803,7 @@
         "PROMPTS.md",
         "PRODUCT.md",
         "scripts/check_submission.py",
-        "README.md",
-        "package.json",
-        "package-lock.json"
+        "README.md"
       ],
       "dependencies": [
         "M5-REVIEW"
@@ -836,15 +834,19 @@
           "kind": "command",
           "command": "python3 scripts/check_submission.py && npm run build",
           "mandatory": true,
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/M6-SUBMIT-submission-8b3824cb-aefe-46e3-976b-452dbf4898ec.json",
+            "hash": "043b1756a4db06dadcab2b3383627081687abfc80393ce6220175a7971a6d1d1",
+            "source_hash": "6a0969a0e2d60683d4bba775b364b52479e2fc371103cfd228ce9fcbc9334292",
+            "config_hash": "5d70e9fe74a5def57811bf36b29ded285607654f4d8420f99d1a499c2ff8edd9",
+            "observed_at": "2026-11-10T17:59:56.867Z"
+          }
         }
       ],
       "next_action": "Run the task pre-flight.",
       "blocker": null,
-      "notes": [
-        "Expanded scope for the Vercel SSR dependency fix required by the evaluator-open deployment scenario; decision recorded in Genesis."
-      ],
+      "notes": [],
       "failures": [],
       "limitations": [],
       "created_at": "2026-11-10T11:45:43.883Z",
@@ -1410,6 +1412,30 @@
       "cost": null,
       "stop_reason": null,
       "ended_at": "2026-11-10T15:33:17.576Z"
+    },
+    {
+      "id": "8b3824cb-aefe-46e3-976b-452dbf4898ec",
+      "task": "M6-SUBMIT",
+      "kind": "gate",
+      "command": "python3 scripts/check_submission.py && npm run build",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 116482,
+      "child_pid": 116504,
+      "started_at": "2026-11-10T17:59:46.330Z",
+      "status": "passed",
+      "before_hash": "6a0969a0e2d60683d4bba775b364b52479e2fc371103cfd228ce9fcbc9334292",
+      "config_hash": "5d70e9fe74a5def57811bf36b29ded285607654f4d8420f99d1a499c2ff8edd9",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T17:59:56.867Z"
     }
   ],
   "authorizations": [],
@@ -1417,11 +1443,11 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-11-10T17:55:51.827Z",
+    "at": "2026-11-10T18:00:04.269Z",
     "revision": {
-      "commit": "fe3e9dbdf20ec0c3e0ba2e26689d2724a5216402",
+      "commit": "6042474983eea6efeb526140e8e125396ba188e0",
       "dirty": true,
-      "source_hash": "a4f6e1e66d2adff954243ff48055774445e3a78b7da8b698135ad1cf0771ba58"
+      "source_hash": "6a0969a0e2d60683d4bba775b364b52479e2fc371103cfd228ce9fcbc9334292"
     },
     "active_task": "M6-SUBMIT",
     "next_action": "Run the task pre-flight."

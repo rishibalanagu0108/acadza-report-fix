@@ -121,11 +121,13 @@ Questions? Reply to the email. Good luck. We're excited to see what you build.
 
 ## Local app setup
 
-The Next.js and Tailwind CSS app shows the precomputed triage results in a read-only faculty queue. It does not make new model calls or change the supplied questions. Neon currently provides a database connection check; saved faculty decisions and their history are planned for Milestone 5.
+The review desk shows the saved results for all 44 reports, grouped by question. It does not make new AI calls when someone opens or refreshes the site. Faculty can approve, edit, or reject a suggestion; Neon stores each decision and its history. The supplied question files are not changed.
+
+**Live demo:** <https://acadza-report-fix-brown.vercel.app/>
 
 1. Run `npm install`.
 2. Run `neon init -y --org-id org-lucky-mountain-97308818 --project-id still-hall-65689277 --branch production --services postgres`, then `neon deploy`. The CLI writes the connection details to the ignored `.env.local` file.
-3. For a new batch triage run, set `OPENAI_API_KEY` or `LLM_API_KEY` in the ignored `.env.local`. The checker uses GPT-6 Luna. The faculty console itself needs no model key because it reads `results.json`. Never commit the key. See [.env.example](.env.example) for variable names.
-4. Run `npm run build` and `npm run start`. `GET /api/db-check` returns `{"service":"postgres","connected":true}` when the app reaches Neon.
+3. For Vercel, use `/` as the project root and set `DATABASE_URL` for Production. The live site reads saved results and does not need an AI key.
+4. Run `npm run build`, then `npm run start`. Open `/api/db-check`; it returns `{"service":"postgres","connected":true}` when the app reaches Neon.
 
-Website deployment is reserved for the final submission milestone.
+To create a new `results.json` batch, set `OPENAI_API_KEY` or `LLM_API_KEY` in the ignored `.env.local`, then run `python3 scripts/triage.py`. This is only needed when intentionally regenerating triage results. Never commit the key. See [.env.example](.env.example) for variable names.
