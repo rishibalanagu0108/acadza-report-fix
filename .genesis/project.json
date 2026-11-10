@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-11-10T11:33:20.458Z",
-    "updated_at": "2026-11-10T15:39:16.158Z"
+    "updated_at": "2026-11-10T15:49:18.775Z"
   },
   "policy": {
     "ponytail": "full",
@@ -1403,11 +1403,11 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-11-10T15:39:16.125Z",
+    "at": "2026-11-10T15:49:18.730Z",
     "revision": {
-      "commit": "79c7f44446a0703018a0a513fc332b99ce54edc7",
+      "commit": "a116db28432842f0b267451ee5df80d5c964b788",
       "dirty": true,
-      "source_hash": "327227a043aeabdedc33d2961aa71464552796a1d1d616f969b527cc74cccff3"
+      "source_hash": "7ef0190fef53d1b361d0b58c84779411f5d73383788f2caa1e51b73ce021845b"
     },
     "active_task": "M6-SUBMIT",
     "next_action": "Run the task pre-flight."
