@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-11-10T11:33:20.458Z",
-    "updated_at": "2026-11-10T14:16:36.472Z"
+    "updated_at": "2026-11-10T14:17:49.721Z"
   },
   "policy": {
     "ponytail": "full",
@@ -64,14 +64,14 @@
       ]
     },
     "plan_check": {
-      "at": "2026-11-10T11:46:18.135Z",
-      "source_hash": "897f479772f43b75136763b84ec4d48f945596238bf76519d1b73c2e316e69b1"
+      "at": "2026-11-10T14:17:49.427Z",
+      "source_hash": "ccb3266dd0f99ea7f7aee8b55ab3bc3c4fbec50d94427ea60b97ef55af506833"
     },
     "plan_approval": {
-      "human": "Project owner",
-      "reason": "User answered Okay to the explicit request to approve the checked six-task implementation plan",
-      "at": "2026-11-10T11:53:59.997Z",
-      "source_hash": "897f479772f43b75136763b84ec4d48f945596238bf76519d1b73c2e316e69b1"
+      "human": "Rishik",
+      "reason": "Approve the bounded M5 scope update: it includes the console screen and test command needed for faculty actions; requirements are unchanged.",
+      "at": "2026-11-10T14:17:49.696Z",
+      "source_hash": "ccb3266dd0f99ea7f7aee8b55ab3bc3c4fbec50d94427ea60b97ef55af506833"
     }
   },
   "artifacts": [
@@ -671,9 +671,11 @@
       "risk": "medium",
       "owner": null,
       "scope": [
-        "app/api",
+        "app",
+        "components",
         "lib/reviews",
-        "tests/review"
+        "tests/review",
+        "package.json"
       ],
       "dependencies": [
         "M4-CONSOLE"
@@ -685,6 +687,8 @@
       ],
       "inputs": [
         "results.json",
+        "data/questions.json",
+        "data/reports.json",
         "data/taxonomy.json"
       ],
       "environment": [],
@@ -719,7 +723,9 @@
       ],
       "next_action": "Run the task pre-flight.",
       "blocker": null,
-      "notes": [],
+      "notes": [
+        "Scope expanded to include the case screen and npm test command; needed to deliver the assignment-required actions in the reviewed console."
+      ],
       "failures": [],
       "limitations": [],
       "created_at": "2026-11-10T11:45:43.623Z",
@@ -855,6 +861,15 @@
       "task": "M4-CONSOLE",
       "human": "Rishik",
       "reason": "Owner reviewed and approved the faculty console preview.",
+      "revision": null
+    },
+    {
+      "id": "1217ef96-600f-4f44-914a-c844f64c746c",
+      "at": "2026-11-10T14:17:44.934Z",
+      "action": "requeue",
+      "task": "M5-REVIEW",
+      "human": null,
+      "reason": null,
       "revision": null
     }
   ],

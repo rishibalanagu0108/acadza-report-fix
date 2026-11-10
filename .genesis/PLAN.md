@@ -4,7 +4,7 @@
 
 - workflow: new-product
 - phase: build
-- plan approval: Project owner at 2026-11-10T11:53:59.997Z
+- plan approval: Rishik at 2026-11-10T14:17:49.696Z
 
 ## Tasks
 
@@ -44,7 +44,7 @@
 
 - state/risk: active / medium
 - requirements: FR-9, NFR-4, AC-5
-- scope: app/api, lib/reviews, tests/review
+- scope: app, components, lib/reviews, tests/review, package.json
 - gates: review: npm run test:review, independent-review: pending
 - next: Run the task pre-flight.
 
