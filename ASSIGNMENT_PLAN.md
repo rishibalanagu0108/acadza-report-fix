@@ -14,7 +14,7 @@ The stage-by-stage deliverables and checks are in [MILESTONES.md](MILESTONES.md)
 
 ## Candidate implementation (after problem analysis)
 
-One possible implementation is a **batch Python 3 triage script** to produce versioned `results.json` and a **Next.js/TypeScript faculty console** to display that snapshot. **Tailwind CSS is the chosen UI styling approach.** The model would run during batch generation, so the live demo stays usable without credits. A small hosted database could store faculty decisions and audit entries; the dataset and AI proposals could remain files. The framework, model provider, and database are still working choices; we will revisit them against the cases and deployment needs.
+The selected implementation is a **batch Python 3 triage script** to produce versioned `results.json` and a **Next.js/TypeScript faculty console** styled with **Tailwind CSS**. The app is scaffolded and connected to **Neon Postgres**; review tables and decision persistence come in Milestone 5. The model runs during batch generation, so the eventual demo can stay usable without credits. The model provider remains open. Website deployment comes in the final milestone.
 
 ```mermaid
 flowchart LR

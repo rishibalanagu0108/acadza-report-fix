@@ -118,3 +118,14 @@ Top submissions get a 30-minute call where we'll change a requirement live and w
 Questions? Reply to the email. Good luck. We're excited to see what you build.
 
 *Acadza Technologies*
+
+## Local app setup
+
+The Next.js and Tailwind CSS app currently provides a read-only Neon Postgres connection check. The faculty queue and persisted decisions are planned milestones; this setup does not create review tables or run the triage model.
+
+1. Run `npm install`.
+2. Run `neon init -y --org-id org-lucky-mountain-97308818 --project-id still-hall-65689277 --branch production --services postgres`, then `neon deploy`. The CLI writes the connection details to the ignored `.env.local` file.
+3. Add the model key later as `LLM_API_KEY` in `.env.local` when its provider is chosen. Never commit the key. See [.env.example](.env.example) for variable names.
+4. Run `npm run build` and `npm run start`. `GET /api/db-check` returns `{"service":"postgres","connected":true}` when the app reaches Neon.
+
+Website deployment is reserved for the final submission milestone.
