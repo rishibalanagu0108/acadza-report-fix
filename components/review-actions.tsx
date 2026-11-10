@@ -18,6 +18,7 @@ export function ReviewActions({ reportId, proposalVersion, edit, initialReviewer
   const [replacement, setReplacement] = useState(edit?.replace ?? "");
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
+  const [mode, setMode] = useState<"ready" | "edit" | "reject">("ready");
 
   async function save(action: ReviewAction) {
     if (!reviewerName.trim()) {
@@ -45,6 +46,7 @@ export function ReviewActions({ reportId, proposalVersion, edit, initialReviewer
       }
       setMessage("Decision saved. The review history has been updated.");
       setReason("");
+      setMode("ready");
       router.refresh();
     } catch {
       setMessage("Could not reach the review service. Try again.");
@@ -54,48 +56,64 @@ export function ReviewActions({ reportId, proposalVersion, edit, initialReviewer
   }
 
   return (
-    <section aria-labelledby="decision-actions-heading" className="mt-6 border-t border-ink/10 pt-5">
-      <h3 id="decision-actions-heading" className="text-xs font-semibold tracking-[0.1em] text-muted">FACULTY DECISION</h3>
-      <label className="mt-3 block text-xs font-medium text-ink" htmlFor="reviewer-name">Your name</label>
+    <section aria-labelledby="decision-actions-heading">
+      <div className="flex items-center justify-between gap-3">
+        <h3 id="decision-actions-heading" className="text-sm font-semibold tracking-tight text-ink">Faculty decision</h3>
+        <span className="text-[11px] text-muted">Choose an action</span>
+      </div>
+      <label className="mt-3 block text-[11px] font-medium text-muted" htmlFor="reviewer-name">REVIEWER</label>
       <input
         id="reviewer-name"
         value={reviewerName}
         onChange={(event) => setReviewerName(event.target.value)}
         maxLength={80}
         autoComplete="name"
-        className="mt-1 h-10 w-full border border-ink/15 bg-white px-3 text-sm outline-none focus:border-coral focus:ring-2 focus:ring-coral/20"
+        placeholder="Your name"
+        className="mt-1 h-9 w-full border border-ink/15 bg-white px-3 text-sm outline-none transition focus:border-teal focus:ring-2 focus:ring-teal/15"
       />
 
-      {edit && (
+      {mode !== "ready" && (
         <>
-          <label className="mt-4 block text-xs font-medium text-ink" htmlFor="replacement-text">Corrected text</label>
+          {mode === "edit" && (
+            <>
+              <label className="mt-3 block text-[11px] font-medium text-muted" htmlFor="replacement-text">CORRECTED TEXT</label>
+              <textarea
+                id="replacement-text"
+                value={replacement}
+                onChange={(event) => setReplacement(event.target.value)}
+                maxLength={2000}
+                rows={3}
+                className="mt-1 w-full resize-y border border-ink/15 bg-white p-2.5 text-sm leading-relaxed outline-none transition focus:border-teal focus:ring-2 focus:ring-teal/15"
+              />
+            </>
+          )}
+          <label className="mt-3 block text-[11px] font-medium text-muted" htmlFor="decision-reason">
+            REASON <span className="font-normal normal-case tracking-normal">(required)</span>
+          </label>
           <textarea
-            id="replacement-text"
-            value={replacement}
-            onChange={(event) => setReplacement(event.target.value)}
-            maxLength={2000}
-            rows={4}
-            className="mt-1 w-full border border-ink/15 bg-white p-3 text-sm leading-relaxed outline-none focus:border-coral focus:ring-2 focus:ring-coral/20"
+            id="decision-reason"
+            value={reason}
+            onChange={(event) => setReason(event.target.value)}
+            maxLength={500}
+            rows={2}
+            className="mt-1 w-full resize-y border border-ink/15 bg-white p-2.5 text-sm leading-relaxed outline-none transition focus:border-teal focus:ring-2 focus:ring-teal/15"
+            placeholder={mode === "reject" ? "Why should this proposal be rejected?" : "What did you correct?"}
           />
         </>
       )}
 
-      <label className="mt-4 block text-xs font-medium text-ink" htmlFor="decision-reason">Reason <span className="font-normal text-muted">(required for edit or reject)</span></label>
-      <textarea
-        id="decision-reason"
-        value={reason}
-        onChange={(event) => setReason(event.target.value)}
-        maxLength={500}
-        rows={3}
-        className="mt-1 w-full border border-ink/15 bg-white p-3 text-sm leading-relaxed outline-none focus:border-coral focus:ring-2 focus:ring-coral/20"
-        placeholder="What did you check?"
-      />
-
-      <div className="mt-4 grid gap-2">
-        <button type="button" disabled={busy} onClick={() => void save("approve")} className="min-h-10 bg-teal px-3 py-2 text-sm font-semibold text-white hover:bg-teal/90 disabled:cursor-wait disabled:opacity-60">Approve proposal</button>
-        <button type="button" disabled={busy || !edit} onClick={() => void save("edit")} className="min-h-10 border border-ink/20 bg-white px-3 py-2 text-sm font-semibold hover:bg-canvas disabled:cursor-not-allowed disabled:opacity-45">Save edited proposal</button>
-        <button type="button" disabled={busy} onClick={() => void save("reject")} className="min-h-10 border border-red/30 px-3 py-2 text-sm font-semibold text-red hover:bg-red/5 disabled:cursor-wait disabled:opacity-60">Reject proposal</button>
-      </div>
+      {mode === "ready" ? (
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <button type="button" disabled={busy} onClick={() => void save("approve")} className="col-span-2 min-h-10 bg-teal px-3 py-2 text-sm font-semibold text-white transition hover:bg-teal/90 active:translate-y-px disabled:cursor-wait disabled:opacity-60">Approve proposal</button>
+          {edit && <button type="button" disabled={busy} onClick={() => { setMode("edit"); setMessage(""); }} className="min-h-10 border border-ink/15 bg-white px-3 py-2 text-sm font-semibold transition hover:bg-canvas active:translate-y-px disabled:cursor-wait disabled:opacity-60">Edit proposal</button>}
+          <button type="button" disabled={busy} onClick={() => { setMode("reject"); setMessage(""); }} className={`min-h-10 border border-red/25 bg-white px-3 py-2 text-sm font-semibold text-red transition hover:bg-red/5 active:translate-y-px disabled:cursor-wait disabled:opacity-60 ${edit ? "" : "col-span-2"}`}>Reject proposal</button>
+        </div>
+      ) : (
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <button type="button" disabled={busy} onClick={() => void save(mode === "edit" ? "edit" : "reject")} className="min-h-10 bg-teal px-3 py-2 text-sm font-semibold text-white transition hover:bg-teal/90 active:translate-y-px disabled:cursor-wait disabled:opacity-60">{busy ? "Saving…" : mode === "edit" ? "Save edit" : "Confirm rejection"}</button>
+          <button type="button" disabled={busy} onClick={() => { setMode("ready"); setReason(""); setMessage(""); }} className="min-h-10 border border-ink/15 bg-white px-3 py-2 text-sm font-semibold transition hover:bg-canvas disabled:opacity-60">Cancel</button>
+        </div>
+      )}
       <p role="status" aria-live="polite" className="mt-3 min-h-5 text-xs leading-relaxed text-muted">{message}</p>
     </section>
   );

@@ -30,7 +30,7 @@ function hrefFor(params: { q: string; route: string; question?: string; report?:
 }
 
 function formatTime(value: string | Date) {
-  return new Date(value).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" });
+  return new Date(value).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kolkata" });
 }
 
 export default async function Home({ searchParams }: { searchParams: SearchParams }) {
@@ -101,11 +101,11 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
               <span>CONTENT QUALITY</span><span aria-hidden="true">/</span><span>REPORT QUEUE</span>
             </div>
             <div className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h1 className="text-xl font-semibold tracking-tight sm:text-2xl">Reported questions</h1>
-              <p className="text-sm text-muted">44 reports across 39 questions</p>
+              <h1 className="text-2xl font-semibold tracking-[-0.03em] sm:text-[28px]">Review queue</h1>
+              <p className="text-sm text-muted">44 student reports across 39 questions</p>
             </div>
           </div>
-          <form action="/" className="flex w-full max-w-md items-center gap-2 lg:w-auto">
+            <form action="/" className="flex w-full max-w-md items-center gap-2 lg:w-auto">
             {routeFilter !== "all" && <input type="hidden" name="route" value={routeFilter} />}
             <label className="sr-only" htmlFor="case-search">Search reports</label>
             <input
@@ -121,7 +121,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-[260px_minmax(0,1fr)] xl:grid-cols-[292px_minmax(0,1fr)_330px]">
+      <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-[260px_minmax(0,1fr)] xl:grid-cols-[280px_minmax(0,1fr)_360px]">
         <nav aria-label="Question cases" className="border-b border-ink/10 bg-shell text-paper lg:sticky lg:top-0 lg:max-h-[calc(100dvh-0px)] lg:overflow-y-auto lg:border-b-0 lg:border-r lg:border-paper/10 xl:h-dvh">
           <div className="sticky top-0 z-10 border-b border-paper/10 bg-shell px-4 py-3 sm:px-5">
             <div className="flex items-center justify-between">
@@ -182,8 +182,8 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
                 </div>
                 <div className="mt-2 flex flex-wrap items-start justify-between gap-4">
                   <div>
-                    <h2 className="font-mono text-sm font-semibold">Question {activeCase.questionId}</h2>
-                    <p className="mt-1 text-sm text-muted">{activeCase.reports.length} student {activeCase.reports.length === 1 ? "report" : "reports"} · Report received {activeReport.reportedAt}</p>
+                    <h2 className="font-mono text-sm font-semibold tabular-nums">Question {activeCase.questionId}</h2>
+                    <p className="mt-1 text-sm text-muted">{activeCase.reports.length} student {activeCase.reports.length === 1 ? "report" : "reports"} · Latest report {activeReport.reportedAt}</p>
                   </div>
                   <span className={`border px-2.5 py-1 text-xs font-medium ${routeStyle(activeCase.queueRoute)}`}>{routeNames[activeCase.queueRoute]}</span>
                 </div>
@@ -246,10 +246,11 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
               </div>
             </article>
 
-            <aside aria-label="AI assessment" className="border-t border-ink/10 bg-[#f7f5f0] px-4 py-5 sm:px-7 sm:py-7 lg:col-span-2 xl:col-span-1 xl:border-l xl:border-t-0 xl:px-6 xl:py-8">
-              <div className="xl:sticky xl:top-6">
+            <aside aria-label="AI assessment" className="border-t border-ink/10 bg-[#f7f5f0] lg:col-span-2 xl:sticky xl:top-0 xl:col-span-1 xl:h-[calc(100dvh-9.5rem)] xl:min-h-[34rem] xl:overflow-hidden xl:border-l xl:border-t-0">
+              <div className="xl:grid xl:h-full xl:grid-rows-[minmax(0,1fr)_auto]">
+               <div className="px-4 py-5 sm:px-7 sm:py-7 xl:min-h-0 xl:overflow-y-auto xl:px-6 xl:py-6">
                 <div className="flex items-center justify-between">
-                  <p className="text-xs font-semibold tracking-[0.14em] text-muted">AI ASSESSMENT</p>
+                  <p className="text-[11px] font-semibold tracking-[0.14em] text-muted">AI ASSESSMENT</p>
                   <span className="font-mono text-xs text-muted">{activeReport.id}</span>
                 </div>
                 <div className="mt-4 border-l-2 border-coral pl-4">
@@ -298,29 +299,6 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
                   <h3 className="text-xs font-semibold tracking-[0.1em] text-muted">STUDENT REPLY PREVIEW</h3>
                   <blockquote className="mt-2 border-l border-ink/20 pl-3 text-sm leading-relaxed text-ink/80">{activeReport.studentReply}</blockquote>
                 </section>
-                {currentDecision ? (
-                  <section className="mt-6 border-t border-ink/10 pt-5">
-                    <h3 className="text-xs font-semibold tracking-[0.1em] text-muted">CURRENT DECISION</h3>
-                    <p className="mt-2 text-sm font-semibold capitalize">{currentDecision.action}{currentDecision.action === "reject" ? " · source unchanged" : " · saved"}</p>
-                    <p className="mt-1 text-xs text-muted">{currentDecision.reviewer_name} · {formatTime(currentDecision.decided_at)}</p>
-                    {currentDecision.reason && <p className="mt-2 text-sm leading-relaxed">{currentDecision.reason}</p>}
-                  </section>
-                ) : decisionIsStale ? (
-                  <p className="mt-6 border-t border-amber/20 pt-4 text-sm leading-relaxed text-amber">An earlier decision is out of date because this proposal changed. It has not been applied to the demo version.</p>
-                ) : null}
-
-                {reviewBundle ? (
-                  <ReviewActions
-                    key={activeReport.id}
-                    reportId={activeReport.id}
-                    proposalVersion={proposalVersion ?? ""}
-                    edit={getProposal(activeReport.id)?.edit ?? null}
-                    initialReviewerName={currentDecision?.reviewer_name ?? savedDecision?.reviewer_name ?? ""}
-                  />
-                ) : (
-                  <p className="mt-6 border-t border-ink/10 pt-4 text-xs leading-relaxed text-muted">Review saving is unavailable right now. The report and proposed change are still available to inspect.</p>
-                )}
-
                 {reviewBundle && reviewBundle.events.length > 0 && (
                   <section className="mt-6 border-t border-ink/10 pt-5">
                     <h3 className="text-xs font-semibold tracking-[0.1em] text-muted">REVIEW HISTORY</h3>
@@ -336,6 +314,34 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
                   </section>
                 )}
                 <p className="mt-6 border-t border-ink/10 pt-4 text-xs leading-relaxed text-muted">AI suggestions need faculty judgment before a question is changed.</p>
+               </div>
+
+               <div className="border-t border-ink/15 bg-paper px-4 py-4 sm:px-7 xl:px-5 xl:py-4">
+                {currentDecision ? (
+                  <div className="mb-3 flex items-start justify-between gap-3 border-l-2 border-teal pl-3">
+                    <div>
+                      <p className="text-[10px] font-semibold tracking-[0.12em] text-muted">CURRENT DECISION</p>
+                      <p className="mt-0.5 text-sm font-semibold capitalize">{currentDecision.action}{currentDecision.action === "reject" ? " · source unchanged" : " · saved"}</p>
+                      {currentDecision.reason && <p className="mt-1 line-clamp-2 text-[11px] leading-relaxed text-muted">{currentDecision.reason}</p>}
+                    </div>
+                    <p className="max-w-[46%] text-right text-[10px] leading-relaxed text-muted">{currentDecision.reviewer_name}<br />{formatTime(currentDecision.decided_at)}</p>
+                  </div>
+                ) : decisionIsStale ? (
+                  <p className="mb-3 border-l-2 border-amber pl-3 text-xs leading-relaxed text-amber">An earlier decision is out of date and has not been applied to the demo version.</p>
+                ) : null}
+
+                {reviewBundle ? (
+                  <ReviewActions
+                    key={activeReport.id}
+                    reportId={activeReport.id}
+                    proposalVersion={proposalVersion ?? ""}
+                    edit={getProposal(activeReport.id)?.edit ?? null}
+                    initialReviewerName={currentDecision?.reviewer_name ?? savedDecision?.reviewer_name ?? ""}
+                  />
+                ) : (
+                  <p className="text-xs leading-relaxed text-muted">Review saving is unavailable right now. The report and proposed change are still available to inspect.</p>
+                )}
+               </div>
               </div>
             </aside>
           </>
