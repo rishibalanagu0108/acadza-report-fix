@@ -14,7 +14,7 @@ The stage-by-stage deliverables and checks are in [MILESTONES.md](MILESTONES.md)
 
 ## Candidate implementation (after problem analysis)
 
-One possible implementation is a **batch Python 3 triage script** to produce versioned `results.json` and a **Next.js/TypeScript faculty console** to display that snapshot. The model would run during batch generation, so the live demo stays usable without credits. A small hosted database could store faculty decisions and audit entries; the dataset and AI proposals could remain files. These are working choices, not commitments. We will revisit them after investigating the cases and defining the decisions we need to support.
+One possible implementation is a **batch Python 3 triage script** to produce versioned `results.json` and a **Next.js/TypeScript faculty console** to display that snapshot. **Tailwind CSS is the chosen UI styling approach.** The model would run during batch generation, so the live demo stays usable without credits. A small hosted database could store faculty decisions and audit entries; the dataset and AI proposals could remain files. The framework, model provider, and database are still working choices; we will revisit them against the cases and deployment needs.
 
 ```mermaid
 flowchart LR

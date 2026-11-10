@@ -1,0 +1,30 @@
+{
+  "task": "M2-SAFETY",
+  "gate": "safety",
+  "kind": "command",
+  "attempt": "5190241c-0f37-41c3-bff9-cd44b836b996",
+  "command": "python3 -m unittest tests.test_safety",
+  "started_at": "2026-11-10T12:09:49.234Z",
+  "observed_at": "2026-11-10T12:09:49.547Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "",
+  "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.003s\n\nOK\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "c309b2521a42cf438be04143a03cb3b0ed8f9213",
+    "dirty": true
+  },
+  "source_hash": "d63932d3a402aa063e16faea63922e45e459dc06066b74eeede774bd14d77567",
+  "before_hash": "d63932d3a402aa063e16faea63922e45e459dc06066b74eeede774bd14d77567",
+  "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+    "variables": {}
+  },
+  "hash": "74a4ca2af3f28a09f00960af4c71b4fb384b5a21364108e95af529f8d3237079"
+}

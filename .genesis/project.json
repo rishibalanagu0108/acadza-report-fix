@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-11-10T11:33:20.458Z",
-    "updated_at": "2026-11-10T11:57:26.332Z"
+    "updated_at": "2026-11-10T12:09:49.834Z"
   },
   "policy": {
     "ponytail": "full",
@@ -154,6 +154,16 @@
       "status": "accepted",
       "source": "scripts/safety.py; tests/test_safety.py",
       "recorded_at": "2026-11-10T11:57:02.161Z",
+      "paths": [],
+      "tags": []
+    },
+    {
+      "id": "DECISION-ece9af93",
+      "title": "Use Tailwind CSS for faculty UI",
+      "text": "Use Tailwind CSS for the faculty review console styling. Keep the Next.js framework choice provisional until the UI milestone; use the current official Next.js and Tailwind integration when implementing.",
+      "status": "accepted",
+      "source": "User instruction 2026-11-10; ASSIGNMENT_PLAN.md",
+      "recorded_at": "2026-11-10T12:09:49.023Z",
       "paths": [],
       "tags": []
     }
@@ -329,11 +339,11 @@
           "mandatory": true,
           "status": "pass",
           "evidence": {
-            "path": ".genesis/evidence/M2-SAFETY-safety-9c594332-5395-4519-9018-39af7d6c1c3c.json",
-            "hash": "8d802eb01b558d0b3c533df3bceb03560342231f8b358100c7252517fac054ec",
-            "source_hash": "a49670a5d0056d3923f58d67c9def727f0174920516c3057d14eb845ae7f6528",
+            "path": ".genesis/evidence/M2-SAFETY-safety-5190241c-0f37-41c3-bff9-cd44b836b996.json",
+            "hash": "74a4ca2af3f28a09f00960af4c71b4fb384b5a21364108e95af529f8d3237079",
+            "source_hash": "d63932d3a402aa063e16faea63922e45e459dc06066b74eeede774bd14d77567",
             "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
-            "observed_at": "2026-11-10T11:57:23.164Z"
+            "observed_at": "2026-11-10T12:09:49.547Z"
           }
         },
         {
@@ -738,6 +748,30 @@
       "cost": null,
       "stop_reason": null,
       "ended_at": "2026-11-10T11:57:23.163Z"
+    },
+    {
+      "id": "5190241c-0f37-41c3-bff9-cd44b836b996",
+      "task": "M2-SAFETY",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_safety",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 67688,
+      "child_pid": 67705,
+      "started_at": "2026-11-10T12:09:49.234Z",
+      "status": "passed",
+      "before_hash": "d63932d3a402aa063e16faea63922e45e459dc06066b74eeede774bd14d77567",
+      "config_hash": "abf1a620bc7dafaaf368d3a622fede8f0e2451599299c93a3c93f76554ae72de",
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-10T12:09:49.547Z"
     }
   ],
   "authorizations": [],
@@ -745,11 +779,11 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-11-10T11:57:26.304Z",
+    "at": "2026-11-10T12:09:49.800Z",
     "revision": {
-      "commit": null,
-      "dirty": null,
-      "source_hash": "a49670a5d0056d3923f58d67c9def727f0174920516c3057d14eb845ae7f6528"
+      "commit": "c309b2521a42cf438be04143a03cb3b0ed8f9213",
+      "dirty": true,
+      "source_hash": "d63932d3a402aa063e16faea63922e45e459dc06066b74eeede774bd14d77567"
     },
     "active_task": "M2-SAFETY",
     "next_action": "Run the task pre-flight."
