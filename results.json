@@ -422,16 +422,12 @@
     "reportId": "R034",
     "questionId": "695ee00b88d7701e561aabc5",
     "verdict": "defect",
-    "repair": "answer_key",
-    "edit": {
-      "field": "answer",
-      "find": "D",
-      "replace": "C"
-    },
-    "route": "auto_apply",
+    "repair": "unsound",
+    "edit": null,
+    "route": "faculty_review",
     "confidence": 0.99,
-    "evidence": "The solution’s calculation gives the resultant intensity as I₀, confirming Assertion A is true. Reason R is false: a non-zero phase difference does not always make the resultant intensity equal to the sum of the individual intensities. At π/2 the interference term is zero, but that does not make R’s general claim true. Therefore option C is correct, not the saved answer D. The solution also contradicts itself in its conclusion. Separate question-only check confirmed the exact proposed edit.",
-    "student_reply": "Thanks for flagging this. The calculation supports the assertion, while the reason is false as stated. The saved answer appears inconsistent; it can be reviewed by the faculty."
+    "evidence": "For two equal-amplitude waves with phase difference π/2, the resultant intensity is 2I₀, not the intensity of one wave, so assertion A is false. Reason R is also false as stated: a non-zero phase difference does not always make the intensities add. None of the choices represents both statements as false, and the saved solution contradicts itself. No answer-key edit is safe; faculty review is needed.",
+    "student_reply": "Thanks for flagging this. The saved solution and answer choices appear inconsistent, so faculty will review the question before changing its answer."
   },
   {
     "reportId": "R035",
