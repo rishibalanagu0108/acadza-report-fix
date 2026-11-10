@@ -4,11 +4,11 @@
 
 - objective: Build a safe report-to-fix workflow for Acadza questions: accurate report triage, constrained edits, faculty review, and a usable deployed demo
 - phase/status: build/active
-- active task: M5-REVIEW — Persist faculty approve, edit, reject, and audit history
+- active task: M6-SUBMIT — Deploy a credit-independent demo and assemble every required submission artifact
 - blocker: none
 - next action: Run the task pre-flight.
 - phase instruction: Implement only the active task and prove it against current sources. Check `genesis query . impact PATH` before editing shared code.
-- gates: review:pass, independent-review:pending
+- gates: submission:pending
 - recent failures: none
 
 ## Resume
@@ -17,9 +17,9 @@ Load Genesis and official Ponytail full, then run `genesis brief .` for the curr
 Fetch full records with `genesis context . --id ID` only when needed. Do not load project.json or historical proof wholesale.
 Ask the index before reading code: `genesis query . search|scope|callers|callees|impact|path` (`--json` for parsing). Run `genesis query . impact PATH` before editing shared code. Answers are advisory static analysis; `ambiguous` means candidates were not ruled out, so confirm in source.
 Run `genesis serve .` for a live map of the repository when structure is unclear; it reindexes on save and is read-only. Run `genesis index .` if the index is stale and nothing is watching.
-Context fingerprint: ca6479a521310ed216bb8acc7294fc70de566824e04035f8985f84761366346b. Use --since only after receiving that full packet; kickoff is not the packet.
+Context fingerprint: c5da2c4ce89fd402810044ecb017e5a7d0c0e39d0fe784dbc9641dfd506a4d3e. Use --since only after receiving that full packet; kickoff is not the packet.
 - DECISION-c31279e9: Automatic edits require matching independent verification
 - DECISION-3dc5fad2: Use GPT-6 Luna for report triage
-- DECISION-27fa0d91: Sanity-inspired Acadza Review Desk
+- DECISION-22df50fb: Reconcile M2 baseline after authorized setup work
 Applicable invariants, active rules, authorization and proof references are in the packet. Truncated summaries are retrieval pointers, not the full evidence.
 Reuse fresh gates with --reuse. Reconcile interrupted attempts before replaying commands. Report state → evidence → blocker → next action; checkpoint before stopping.

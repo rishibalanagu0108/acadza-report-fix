@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-11-10T11:33:20.458Z",
-    "updated_at": "2026-11-10T15:34:46.493Z"
+    "updated_at": "2026-11-10T15:39:16.158Z"
   },
   "policy": {
     "ponytail": "full",
@@ -25,7 +25,7 @@
   "lifecycle": {
     "phase": "build",
     "status": "active",
-    "active_task": "M5-REVIEW",
+    "active_task": "M6-SUBMIT",
     "blocker": null,
     "next_action": "Run the task pre-flight."
   },
@@ -667,7 +667,7 @@
     {
       "id": "M5-REVIEW",
       "outcome": "Persist faculty approve, edit, reject, and audit history",
-      "state": "active",
+      "state": "done",
       "risk": "medium",
       "owner": null,
       "scope": [
@@ -723,19 +723,26 @@
           "kind": "review",
           "command": "",
           "mandatory": true,
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/M5-REVIEW-independent-review-65e12cae-2907-42ec-b330-c4873ccb3d89.json",
+            "hash": "e542873ed75c31e61fb35892d03ed5fe66e2a8d046ac05144cf8c6a92a94dcb8",
+            "source_hash": "327227a043aeabdedc33d2961aa71464552796a1d1d616f969b527cc74cccff3",
+            "config_hash": "9538ae2450f5ae1b3b9c2b18fda69348db929a46d5a0e024ec57529e282e140a",
+            "observed_at": "2026-11-10T15:37:54.710Z"
+          }
         }
       ],
       "next_action": "Run the task pre-flight.",
       "blocker": null,
       "notes": [
-        "Scope expanded to include the case screen and npm test command; needed to deliver the assignment-required actions in the reviewed console."
+        "Scope expanded to include the case screen and npm test command; needed to deliver the assignment-required actions in the reviewed console.",
+        "Rebased the M5 input baseline to include the committed M3 triage correction in PROMPTS.md and results.json; M5 implementation scope remains unchanged."
       ],
       "failures": [],
       "limitations": [],
       "created_at": "2026-11-10T11:45:43.623Z",
-      "updated_at": "2026-11-10T11:45:43.623Z",
+      "updated_at": "2026-11-10T15:39:13.043Z",
       "base_manifest": {
         ".env.example": "f46e8a2f5f442230dcfe78559a9d769fe04e81d5ca717bc20c78b4ee079873c3",
         ".gitignore": "e025d12f50a440b809437f60829bf41855ab5e270f6c566a9c9df236d9ef64c3",
@@ -744,7 +751,7 @@
         "DESIGN.md": "ebc366931df4638afcddfd6fe27e968fed563d6929a1d019fe15496c58f1e97b",
         "MILESTONES.md": "f51de6f3a75d24537def638d1982de19c59e0f51638d9c32bd4607e39f46477e",
         "PROBLEM_ANALYSIS.md": "821ab924dddf9cffe4d81cd5fe4fa6c8f959e56d12708a8ecb38579b1c4e2116",
-        "PROMPTS.md": "941cfd5128357489286e88fd477c266e41b5ef86252566b495ec672d93097796",
+        "PROMPTS.md": "9ddbaa4f8fb57f8e9a9947331492f049fddb1cd20ab3b266feef382693258026",
         "README.md": "52a90ff761f4f1d364ad08febe871e6ddded0360b1d50cbdb8b9d7d88077b306",
         "SPEC.md": "4dc185796979c6dcc4f0ebb2fa9127fe1c4107fe84ad746e99d9098cbe0d52f9",
         "SYSTEM_FLOW.md": "620c6ef777bee1ae56be329cdb144292707dbcfff49e030cb0bf0159ae817489",
@@ -764,7 +771,7 @@
         "postcss.config.mjs": "fa91b48a6b1771dfaf678c1924b38719bb573379a3b55a9a7372e90eb8a9e675",
         "prompts/independent_check.md": "5edb5c2de71d4ae6804f6389a733d9937d692ea3b3ecf6ebf84e33e8a62635cc",
         "prompts/triage.md": "aa2767a9a6da8153b91945bd7930f74f58448bae54c671da99655f5369c51232",
-        "results.json": "885fd9ce0af9bbb73dc79d87623736a1c0fc7d860edae1125c0b086567d891e0",
+        "results.json": "121b7ec504a9732ee02625096acc92d59e18387290e19f00feb34eff083d6f72",
         "scripts/safety.py": "32f8c7863c59e93c6d42ef236b72240b848b0c84a0c9278ad8774587ba94d698",
         "scripts/triage.py": "60a5eba5928a55791ee59f6930cc75126964541b4d403b4561b1494f237b12f8",
         "scripts/validate_data.py": "265ad0456cbad177442d053bf4504187e7f93d1f9294b522254db4b993418bf3",
@@ -779,7 +786,7 @@
     {
       "id": "M6-SUBMIT",
       "outcome": "Deploy a credit-independent demo and assemble every required submission artifact",
-      "state": "queued",
+      "state": "active",
       "risk": "low",
       "owner": null,
       "scope": [
@@ -827,7 +834,52 @@
       "failures": [],
       "limitations": [],
       "created_at": "2026-11-10T11:45:43.883Z",
-      "updated_at": "2026-11-10T11:45:43.884Z"
+      "updated_at": "2026-11-10T11:45:43.884Z",
+      "base_manifest": {
+        ".env.example": "f46e8a2f5f442230dcfe78559a9d769fe04e81d5ca717bc20c78b4ee079873c3",
+        ".gitignore": "e025d12f50a440b809437f60829bf41855ab5e270f6c566a9c9df236d9ef64c3",
+        "AGENTS.md": "235615464406cf91b4aedf7133e248cc034826978c17b4ceba383cc36ac5ae63",
+        "ASSIGNMENT_PLAN.md": "f65c04baed4e231042140dc5f1b4d65ec37941fd8010b2679052a7763082d188",
+        "DESIGN.md": "ebc366931df4638afcddfd6fe27e968fed563d6929a1d019fe15496c58f1e97b",
+        "MILESTONES.md": "f51de6f3a75d24537def638d1982de19c59e0f51638d9c32bd4607e39f46477e",
+        "PROBLEM_ANALYSIS.md": "821ab924dddf9cffe4d81cd5fe4fa6c8f959e56d12708a8ecb38579b1c4e2116",
+        "PROMPTS.md": "9ddbaa4f8fb57f8e9a9947331492f049fddb1cd20ab3b266feef382693258026",
+        "README.md": "52a90ff761f4f1d364ad08febe871e6ddded0360b1d50cbdb8b9d7d88077b306",
+        "SPEC.md": "4dc185796979c6dcc4f0ebb2fa9127fe1c4107fe84ad746e99d9098cbe0d52f9",
+        "SYSTEM_FLOW.md": "620c6ef777bee1ae56be329cdb144292707dbcfff49e030cb0bf0159ae817489",
+        "app/api/db-check/route.ts": "aec7b2597d047a4ecc8096cdcf7a9be0ba6e653c9fc42e9cc5bb8728067dab15",
+        "app/api/reviews/[reportId]/route.ts": "3dec22d30d6ce1855aed024ee33e66afbc552bb230ffb5dae37e8b5147b833f7",
+        "app/globals.css": "394984b1e21f6c4f88ee2bf7f883b14c0edc63b57ffe8e28d09df0660660679e",
+        "app/layout.tsx": "6328edeba3155c7535fadfa4610284d0f20c8e46e4497b92d385294ef41c18ea",
+        "app/page.tsx": "29be2feec551f343f6109d18a8f5727e2e59ccffd441ffb9292f10cf55528f0a",
+        "components/review-actions.tsx": "f8de34475fa2e75cb0e563a57a669ea45f0476e51cee5296cfea11833d6403c6",
+        "data/questions.json": "da174f0613acfeefeff4ac22ce2ad54729eff80456aa94566a57489720d758d5",
+        "data/reports.json": "62babf834fb3baa813a63f0771e58a3d7f0241e126cdbe49612b747272904d63",
+        "data/taxonomy.json": "5d5c32d23046b7f398c090817fd1d2fa47864651d903e13df4a78f1f70622ac3",
+        "lib/db.ts": "aa8156b8c2e773cd54b2a721f8967765e95d731d280e6ea8d9cd9beded473bfa",
+        "lib/review-data.ts": "7e7c50ad77a2819f52b16f76fd5a284bbc6648ce508c9eebd9bded8237545543",
+        "lib/reviews/001_review_history.sql": "6883becae758c853811ebe55905ba167f3ed71be4090c84045279fe4fff64f20",
+        "lib/reviews/logic.ts": "4ee0d6abb41b8dc969204511d18aed28513fc15720188c1665a2decd3c9d681b",
+        "lib/reviews/store.ts": "1e78861bf631e9a7d11e565a3694c3d4dad835a8ee11add7c17970a088c423a8",
+        "neon.ts": "d6fa195043d42693af03a587f491b263a6a7c499f60f3cab9b6f3db847bf681c",
+        "next-env.d.ts": "cf916a02996fd1b8dba4b9de08d07c2b099cd25e5f4ffb84c90e73ef913394fe",
+        "package-lock.json": "37ad28ad811b321bd4b27446db5a9fd808b97a27f70bf37b41009abe628a3753",
+        "package.json": "564b6c466ce1fb3d4ac9a20da6a76e040a574d4713d10b44ff7cd1fa5cebd85c",
+        "postcss.config.mjs": "fa91b48a6b1771dfaf678c1924b38719bb573379a3b55a9a7372e90eb8a9e675",
+        "prompts/independent_check.md": "5edb5c2de71d4ae6804f6389a733d9937d692ea3b3ecf6ebf84e33e8a62635cc",
+        "prompts/triage.md": "aa2767a9a6da8153b91945bd7930f74f58448bae54c671da99655f5369c51232",
+        "results.json": "121b7ec504a9732ee02625096acc92d59e18387290e19f00feb34eff083d6f72",
+        "scripts/safety.py": "32f8c7863c59e93c6d42ef236b72240b848b0c84a0c9278ad8774587ba94d698",
+        "scripts/triage.py": "60a5eba5928a55791ee59f6930cc75126964541b4d403b4561b1494f237b12f8",
+        "scripts/validate_data.py": "265ad0456cbad177442d053bf4504187e7f93d1f9294b522254db4b993418bf3",
+        "scripts/validate_results.py": "85ffc69672a52341515df70766f7fa9f9ae6beb2acd0b558c4af55134d82aa4c",
+        "tests/console.test.mjs": "52699cd0254786907a7198bfdb5ef9a422ba820bd03a370e5eeeb30e3322b90d",
+        "tests/review/logic.test.mts": "6e6d339d17f7bff1f3e6e09d15cd01e5868ec55934fc1395768cea7c8d503224",
+        "tests/test_contract.py": "548a86ba9932ae3463db195267230fae08264b383289878c8b45d9d68cbe9ace",
+        "tests/test_safety.py": "61ecce79dc1b7703d1bac69fd146fd1a97b51b2fa20d6787113adc5b636fc75d",
+        "tests/test_triage.py": "fff65f936df867ecc0b22a674abe1330a931110d5c263cdc85b8532ed937b79c",
+        "tsconfig.json": "d28e341d23649bbdddacee78af144439b89e6709b46a682247589a502b4ff3f9"
+      }
     }
   ],
   "learning_proposals": [],
@@ -876,6 +928,15 @@
       "task": "M5-REVIEW",
       "human": null,
       "reason": null,
+      "revision": null
+    },
+    {
+      "id": "65e12cae-2907-42ec-b330-c4873ccb3d89",
+      "at": "2026-11-10T15:37:54.710Z",
+      "action": "approve",
+      "task": "M5-REVIEW",
+      "human": "Rishik",
+      "reason": "Reviewed the M5 decision validation, atomic save and audit flow, passing checks, and persisted approvals after page reload.",
       "revision": null
     }
   ],
@@ -1342,13 +1403,13 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-11-10T15:34:46.448Z",
+    "at": "2026-11-10T15:39:16.125Z",
     "revision": {
-      "commit": "139b2a488e7cb365841bb3b4b85e0bf797c5232e",
+      "commit": "79c7f44446a0703018a0a513fc332b99ce54edc7",
       "dirty": true,
       "source_hash": "327227a043aeabdedc33d2961aa71464552796a1d1d616f969b527cc74cccff3"
     },
-    "active_task": "M5-REVIEW",
+    "active_task": "M6-SUBMIT",
     "next_action": "Run the task pre-flight."
   },
   "legacy": null

@@ -42,15 +42,15 @@
 
 ### M5-REVIEW — Persist faculty approve, edit, reject, and audit history
 
-- state/risk: active / medium
+- state/risk: done / medium
 - requirements: FR-9, NFR-4, AC-5
 - scope: app, components, lib/reviews, tests/review, package.json
-- gates: review: npm run test:review, independent-review: pending
+- gates: review: npm run test:review, independent-review: pass
 - next: Run the task pre-flight.
 
 ### M6-SUBMIT — Deploy a credit-independent demo and assemble every required submission artifact
 
-- state/risk: queued / low
+- state/risk: active / low
 - requirements: FR-10, FR-11, AC-6
 - scope: PROMPTS.md, PRODUCT.md, scripts/check_submission.py, README.md
 - gates: submission: python3 scripts/check_submission.py && npm run build
