@@ -34,7 +34,7 @@
 
 ### M4-CONSOLE — Show a usable faculty queue and readable case details with rendered maths
 
-- state/risk: active / medium
+- state/risk: done / medium
 - requirements: FR-7, FR-8, NFR-3, NFR-5, AC-4
 - scope: app, components, tests/console
 - gates: console: npm run build && npm run test:console, independent-review: pass
@@ -42,7 +42,7 @@
 
 ### M5-REVIEW — Persist faculty approve, edit, reject, and audit history
 
-- state/risk: queued / medium
+- state/risk: active / medium
 - requirements: FR-9, NFR-4, AC-5
 - scope: app/api, lib/reviews, tests/review
 - gates: review: npm run test:review, independent-review: pending
