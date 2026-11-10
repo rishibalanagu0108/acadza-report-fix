@@ -1,0 +1,558 @@
+[
+  {
+    "reportId": "R001",
+    "questionId": "60f744b3f1b9bc7cc7b4a949",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "C",
+      "replace": "A"
+    },
+    "route": "auto_apply",
+    "confidence": 0.99,
+    "evidence": "The solution calculates the supply voltage as √(40² + (60−30)²) = 50 V. Option A is 50 V, but the saved answer key is C, which corresponds to 130 V. Separate question-only check confirmed the exact proposed edit.",
+    "student_reply": "You’re right—the solution gives 50 V, which is option A, but the saved key is C. Thanks for pointing this out; it can be reviewed."
+  },
+  {
+    "reportId": "R002",
+    "questionId": "60f744b3f1b9bc7cc7b4a949",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "C",
+      "replace": "A"
+    },
+    "route": "auto_apply",
+    "confidence": 0.96,
+    "evidence": "Although the report gives no details, checking the saved content shows the solution evaluates to 50 V (option A), while the saved key C corresponds to 130 V. Separate question-only check confirmed the exact proposed edit.",
+    "student_reply": "Thanks for flagging this. The saved key appears inconsistent with the solution and options, and can be reviewed."
+  },
+  {
+    "reportId": "R003",
+    "questionId": "60f744b3f1b9bc7cc7b4a949",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "C",
+      "replace": "A"
+    },
+    "route": "auto_apply",
+    "confidence": 0.99,
+    "evidence": "The stated calculation √(40² + 30²) = 50 V is correct, and the solution also ends at 50 V. That is option A; the saved key C points to 130 V. Separate question-only check confirmed the exact proposed edit.",
+    "student_reply": "Your calculation is correct: the result is 50 V, option A. The saved key is C, so this can be reviewed."
+  },
+  {
+    "reportId": "R004",
+    "questionId": "68e870ef42c06737d6e565c4",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "A",
+      "replace": "D"
+    },
+    "route": "auto_apply",
+    "confidence": 0.99,
+    "evidence": "Using the ideal-gas relation P = ⅓ρv_rms² gives ⅓ × 0.09 × 400² = 4800 N/m², which is option D. The saved answer A is inconsistent with both this calculation and the supplied solution. The reported value 8225 N/m² is not supported. Separate question-only check confirmed the exact proposed edit.",
+    "student_reply": "Thanks for flagging this. The calculation gives 4800 N/m² (option D), so the saved key appears inconsistent; it can be reviewed by the faculty."
+  },
+  {
+    "reportId": "R005",
+    "questionId": "68dea616d0cda73d07e93ae6",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "2",
+      "replace": "1"
+    },
+    "route": "auto_apply",
+    "confidence": 0.99,
+    "evidence": "Checked the flux calculation: the face-center charge contributes half of its total flux, (q/2)/(2ε₀) = q/(4ε₀), and the corner charge contributes one eighth of its total flux, (2q)/(8ε₀) = q/(4ε₀). Thus total flux is q/(2ε₀), so comparing with n q/(2ε₀) gives n = 1. The saved answer is 2, while the solution’s final flux also implies n = 1. Separate question-only check confirmed the exact proposed edit.",
+    "student_reply": "Thanks for flagging this. The saved answer appears inconsistent with the calculation; it can be reviewed by the faculty."
+  },
+  {
+    "reportId": "R006",
+    "questionId": "696a866665252c04fc1f81c2",
+    "verdict": "defect",
+    "repair": "stem_data",
+    "edit": {
+      "field": "question",
+      "find": "<h3>(Given bulk modulus of copper <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mo>=</mo><mn>1.4</mn><mi>&times;</mi><msup><mn>10</mn><mrow><mn>11</mn></mrow></msup><msup><mrow><mi mathvariant=\"normal\">N</mi><mi mathvariant=\"normal\">m</mi></mrow><mrow><mo>&minus;</mo><mn>2</mn></mrow></msup></mrow></math> )</h3>",
+      "replace": "<h3>(Given bulk modulus of copper <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mo>=</mo><mn>1.4</mn><mi>&times;</mi><msup><mn>10</mn><mrow><mn>11</mn></mrow></msup><msup><mrow><mi mathvariant=\"normal\">N</mi><mi mathvariant=\"normal\">m</mi></mrow><mrow><mo>&minus;</mo><mn>2</mn></mrow></msup></mrow></math> ; cube edge length = 10 cm)</h3>"
+    },
+    "route": "faculty_review",
+    "confidence": 0.98,
+    "evidence": "The question gives pressure and bulk modulus but not the cube's initial volume, which is needed to calculate an absolute volume contraction. The solution uses a cube side of 10 × 10⁻² m, equivalent to 10 cm; that dimension is absent from the question. With that dimension, the shown result of 50 mm³ agrees with the answer key. Faculty review needed: Structural or markup changes need faculty review.",
+    "student_reply": "You’re right that the cube’s edge length is needed to find its volume contraction. The solution uses a 10 cm edge, but that detail is missing from the question; this can be reviewed by the faculty."
+  },
+  {
+    "reportId": "R007",
+    "questionId": "60f742f6660d187cc13a8078",
+    "verdict": "defect",
+    "repair": "stem_data",
+    "edit": {
+      "field": "question",
+      "find": "A resistance of 40 ohm and an inductance are connected",
+      "replace": "A resistance of 40 ohm and an inductance of 95.5 mH are connected"
+    },
+    "route": "auto_apply",
+    "confidence": 0.99,
+    "evidence": "The question gives the resistance and frequency but no inductance value, so the impedance cannot be determined as written. The saved solution substitutes L = 95.5 × 10⁻³ H, supporting that missing value. Separate question-only check confirmed the exact proposed edit.",
+    "student_reply": "You’re right that the inductance value is missing from the question. I’ve noted this for faculty review."
+  },
+  {
+    "reportId": "R008",
+    "questionId": "60f742f6660d187cc13a8078",
+    "verdict": "defect",
+    "repair": "stem_data",
+    "edit": {
+      "field": "question",
+      "find": "A resistance of 40 ohm and an inductance are connected",
+      "replace": "A resistance of 40 ohm and an inductance of 95.5 mH are connected"
+    },
+    "route": "auto_apply",
+    "confidence": 0.99,
+    "evidence": "The question gives the resistance and frequency but no inductance value, so the impedance cannot be determined as written. The saved solution substitutes L = 95.5 × 10⁻³ H, supporting that missing value. Separate question-only check confirmed the exact proposed edit.",
+    "student_reply": "You’re right that the inductance value is missing from the question. I’ve noted this for faculty review."
+  },
+  {
+    "reportId": "R009",
+    "questionId": "622f08d7b70e4b50e4500a1b",
+    "verdict": "defect",
+    "repair": "option_repair",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.96,
+    "evidence": "The saved single-choice question has options A, B, and C only; faculty should confirm whether D is missing.",
+    "student_reply": "Thanks for flagging this. The saved question shows only options A, B, and C, so faculty should check whether another option is missing."
+  },
+  {
+    "reportId": "R010",
+    "questionId": "622f08d7b70e4b50e4500a1b",
+    "verdict": "defect",
+    "repair": "option_repair",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.95,
+    "evidence": "The saved single-choice question has options A, B, and C only; faculty should confirm whether D is missing.",
+    "student_reply": "Thanks for flagging this. The saved question shows only options A, B, and C, so faculty should check whether another option is missing."
+  },
+  {
+    "reportId": "R011",
+    "questionId": "68e872546e45ba37dcc16bc0",
+    "verdict": "defect",
+    "repair": "option_repair",
+    "edit": {
+      "field": "question",
+      "find": "(C) <br />",
+      "replace": "(C) 1:1<br />"
+    },
+    "route": "faculty_review",
+    "confidence": 0.99,
+    "evidence": "Option C is blank, but the saved answer key is C. The solution states that the two force vectors are equal and opposite, so their magnitudes have ratio 1:1; this is the missing option value supported by the saved content and Coulomb-force pair. Faculty review needed: Structural or markup changes need faculty review.",
+    "student_reply": "You’re right that option C is blank even though it’s keyed as the answer. The solution indicates the force ratio is 1:1; thanks for flagging this for review."
+  },
+  {
+    "reportId": "R012",
+    "questionId": "61dffbec08489156b684bd22",
+    "verdict": "defect",
+    "repair": "spelling",
+    "edit": {
+      "field": "question",
+      "find": "Epithellial tisue",
+      "replace": "Epithelial tissue"
+    },
+    "route": "faculty_review",
+    "confidence": 0.99,
+    "evidence": "Option A contains the misspelled phrase “Epithellial tisue.” The keyed answer and solution identify epithelial tissue, so this is a spelling error in the option. Faculty review needed: An independent check has not confirmed this exact edit.",
+    "student_reply": "Thanks for pointing this out. Option A appears to contain a spelling error; it can be reviewed for correction."
+  },
+  {
+    "reportId": "R013",
+    "questionId": "617fa18efd53ff1629ed890f",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.98,
+    "evidence": "Checked the question, keyed answer D, and solution: they consistently identify lamina as the green expanded part with veins and veinlets. “(NEET 2019)” is an exam-source reference, not an error.",
+    "student_reply": "“NEET 2019” identifies the exam this question came from. The question and keyed answer appear consistent."
+  },
+  {
+    "reportId": "R014",
+    "questionId": "63765a28f1d8416ae0408d89",
+    "verdict": "defect",
+    "repair": "markup_leak",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.98,
+    "evidence": "The saved stem contains literal \\frac markup and the report says it appears as code; faculty should check the rendered question.",
+    "student_reply": "Thanks for reporting this. The saved question contains fraction markup, so faculty should check how it appears on screen."
+  },
+  {
+    "reportId": "R015",
+    "questionId": "6956d79788d7701e5617bc29",
+    "verdict": "defect",
+    "repair": "identical_options",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.99,
+    "evidence": "The saved question lists (B) 0 W and (C) 0 W, so those options are identical. The solution supports 0 W and the saved key is B, but the repeated options make the single-choice option set defective. Creating a replacement distractor requires authoring. Faculty review needed: This repair requires faculty authorship.",
+    "student_reply": "Thanks for pointing this out. Options B and C are both 0 W; this can be reviewed by the faculty team."
+  },
+  {
+    "reportId": "R016",
+    "questionId": "6263d75bdd44e265ef926d97",
+    "verdict": "defect",
+    "repair": "solution_fix",
+    "edit": {
+      "field": "solution",
+      "find": "a = 40 cm",
+      "replace": "a = 20 cm"
+    },
+    "route": "auto_apply",
+    "confidence": 0.99,
+    "evidence": "The saved answer is 20. The solution’s own relation, 800 = 2a², gives a² = 400 and therefore a = 20 cm; its concluding value of 40 cm is incorrect. Separate question-only check confirmed the exact proposed edit.",
+    "student_reply": "The answer key is correct: the cube’s side is 20 cm. The solution’s final calculation appears to be wrong; thanks for pointing it out."
+  },
+  {
+    "reportId": "R017",
+    "questionId": "6208e80a9cb2ab67dac61bd0",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.97,
+    "evidence": "I checked the saved question, options, answer, and solution. The word “mere” does not appear in the saved options, so the reported spelling mistake cannot be verified from this record.",
+    "student_reply": "Thanks for flagging this. I couldn’t find “mere” in the saved options; please share where it appears if you see it on your screen."
+  },
+  {
+    "reportId": "R018",
+    "questionId": "612151a6a34397610a9a2e58",
+    "verdict": "defect",
+    "repair": "solution_fix",
+    "edit": {
+      "field": "solution",
+      "find": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mo>&#x0003D;</mo><mn>5.469</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>10</mn></mrow></msup><mi>m</mi><mo>&#x0003D;</mo><mn>5.47</mn><mi>\\AA</mi></mrow></mstyle></math>",
+      "replace": ""
+    },
+    "route": "faculty_review",
+    "confidence": 0.96,
+    "evidence": "The question asks for kinetic energy from a de Broglie wavelength of 0.3 nm. The solution’s opening calculation gives 5.47 Å, a different wavelength, before calculating 16.8 eV. Independently, K = h²/(2mλ²) for 0.3 nm is about 16.7 eV, consistent with keyed option B. The unrelated opening calculation should be removed; the remaining solution supports the answer. Faculty review needed: Structural or markup changes need faculty review.",
+    "student_reply": "Thanks for flagging this. The solution includes an unrelated wavelength calculation; the kinetic-energy result matches option B. We’ll refer the solution for review."
+  },
+  {
+    "reportId": "R019",
+    "questionId": "612151a6a34397610a9a2e58",
+    "verdict": "defect",
+    "repair": "solution_fix",
+    "edit": {
+      "field": "solution",
+      "find": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mo>&#x0003D;</mo><mn>5.469</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>10</mn></mrow></msup><mi>m</mi><mo>&#x0003D;</mo><mn>5.47</mn><mi>\\AA</mi></mrow></mstyle></math>",
+      "replace": ""
+    },
+    "route": "faculty_review",
+    "confidence": 0.96,
+    "evidence": "The question asks for kinetic energy from a de Broglie wavelength of 0.3 nm. The solution’s opening calculation gives 5.47 Å, a different wavelength, before calculating 16.8 eV. Independently, K = h²/(2mλ²) for 0.3 nm is about 16.7 eV, consistent with keyed option B. The unrelated opening calculation should be removed; the remaining solution supports the answer. Faculty review needed: Structural or markup changes need faculty review.",
+    "student_reply": "Thanks for pointing this out. The solution starts with a wavelength that does not match the question, though its kinetic-energy result matches option B. We’ll refer it for review."
+  },
+  {
+    "reportId": "R020",
+    "questionId": "68c8153cfb6b2f16e2d3ceaf",
+    "verdict": "app_issue",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.96,
+    "evidence": "Checked the statements and saved key: A, B, and D are correct; C is false because a particle moving parallel to a uniform magnetic field experiences no magnetic force and follows a straight path. The reported selection matches the saved key, so this points to a grading or answer-recording issue rather than a content error.",
+    "student_reply": "Your selected answers match the saved key. Please share a screenshot or details of the result so the grading or answer-recording issue can be checked."
+  },
+  {
+    "reportId": "R021",
+    "questionId": "68f21caf941cda588bc04365",
+    "verdict": "defect",
+    "repair": "type_mismatch",
+    "edit": {
+      "field": "questionType",
+      "find": "mcq",
+      "replace": "scq"
+    },
+    "route": "faculty_review",
+    "confidence": 0.91,
+    "evidence": "The decay calculation gives a mean life of about 1.44 min, matching only option B, and the saved answer key is B. The item therefore has one correct option, while its saved type is mcq; changing it to scq is supported. The reported negative score may be a separate platform or scoring issue, which cannot be confirmed from the question record. Independent check: no_defect; sent to faculty. The decay ratio is 6/48 = 1/8, so the mean life is τ = 3/ln(8) ≈ 1.44 min. This matches option B, the saved answer, and the solution.",
+    "student_reply": "You’re right that only option B is correct, so the question type may need review. I can’t verify the negative score from this record; please share it with support or your instructor for checking."
+  },
+  {
+    "reportId": "R022",
+    "questionId": "61ee6c9d90a1a968a168686b",
+    "verdict": "defect",
+    "repair": "spelling",
+    "edit": {
+      "field": "question",
+      "find": "Choroid plexux",
+      "replace": "Choroid plexus"
+    },
+    "route": "auto_apply",
+    "confidence": 0.99,
+    "evidence": "Checked the question options: option D spells “plexus” as “plexux.” This is a spelling error; the keyed answer and solution are unaffected. Separate question-only check confirmed the exact proposed edit.",
+    "student_reply": "Thanks for pointing this out. Option D appears to have a spelling error; it can be reviewed by the faculty team."
+  },
+  {
+    "reportId": "R023",
+    "questionId": "68ecbacb2ec87a18deba1ad7",
+    "verdict": "defect",
+    "repair": "wrong_chapter",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.98,
+    "evidence": "The question asks about the neuronal absolute refractory period and voltage-gated ion channels, which is a Neural Control and Coordination topic, not The Living World. The saved chapter is therefore inconsistent with the question content. Faculty review needed: This repair requires faculty authorship.",
+    "student_reply": "Thanks for flagging this. The question appears to fit Neural Control and Coordination rather than The Living World; the chapter classification can be reviewed."
+  },
+  {
+    "reportId": "R024",
+    "questionId": "5fc60508028950133eac8963",
+    "verdict": "defect",
+    "repair": "answer_form",
+    "edit": {
+      "field": "question",
+      "find": "<h3><span style=\"color:#000000\">A body of mass 2 kg is kept by pressing to a vertical wall by a force of 100 N. The friction between wall and body is 0.3. Then the frictional force is equal to</span></h3>\n",
+      "replace": "<h3><span style=\"color:#000000\">A body of mass 2 kg is kept by pressing to a vertical wall by a force of 100 N. The friction between wall and body is 0.3. Then the frictional force is equal to (in N)</span></h3>\n"
+    },
+    "route": "faculty_review",
+    "confidence": 0.89,
+    "evidence": "The saved solution calculates the frictional force as 20 N and the saved integer answer is 20, but the question does not state the unit expected for the numerical response. Adding “(in N)” clarifies the answer form without changing the physics. Independent check: no_defect; sent to faculty. The applied force provides a normal force of 100 N, so the maximum static friction is 0.3 × 100 = 30 N. Since the body's weight is 2 × 10 = 20 N, static friction balances it and is 20 N, matching the saved answer and solution.",
+    "student_reply": "Thanks for flagging that the expected unit isn’t stated. The solution uses newtons; this can be reviewed for clarification."
+  },
+  {
+    "reportId": "R025",
+    "questionId": "622df25ab70e4b50e44ff837",
+    "verdict": "defect",
+    "repair": "diagram",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.97,
+    "evidence": "The question explicitly says the second end has a sub-hemispherical soap bubble “as shown in figure,” but no figure is present in the saved question content. The missing figure is needed to interpret the setup. Faculty review needed: This repair requires faculty authorship.",
+    "student_reply": "Thanks for flagging this. The question refers to a figure that isn’t included in the saved content. We’ll ask the faculty team to review it."
+  },
+  {
+    "reportId": "R026",
+    "questionId": "620e23cecc50543bc7db9186",
+    "verdict": "defect",
+    "repair": "syllabus",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.94,
+    "evidence": "The current NMC syllabus covers biological evolution broadly, but does not establish whether this specific ancestral-state question is in scope; faculty should decide.",
+    "student_reply": "Thanks for flagging this. Faculty will check the syllabus coverage before deciding whether this question belongs in the course."
+  },
+  {
+    "reportId": "R027",
+    "questionId": "6062ec84518e9535e120c422",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.98,
+    "evidence": "The question gives ΔL = 0.19 cm, L₀ = 100 cm, and ΔT = 100 °C, so the linear expansion coefficient is 0.19/[100 × 100] = 1.9 × 10⁻⁵/°C. The cubical expansion coefficient is approximately 3α = 5.7 × 10⁻⁵/°C, which is option A. Option C is the linear coefficient, not the requested cubical coefficient. The comment provides no separate issue to assess.",
+    "student_reply": "The given data support option A: the cubical expansion coefficient is three times the linear coefficient. Please share any specific concern about the question if you noticed another issue."
+  },
+  {
+    "reportId": "R028",
+    "questionId": "6956d7bb23cb221e570d6013",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.99,
+    "evidence": "Checked the range and maximum-height formulas: R = u²sin(2θ)/g and H = u²sin²θ/(2g). Setting R = H gives tan θ = 4, so the keyed answer B, tan⁻¹(4), is correct. tan⁻¹(2) does not satisfy the equality.",
+    "student_reply": "Thanks for flagging this. The formulas give tan θ = 4, so option B is correct."
+  },
+  {
+    "reportId": "R029",
+    "questionId": "68e8734442c06737d6e56da4",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.99,
+    "evidence": "Checked the force equations against the stated weight (100 N), g (10 m/s²), and accelerations. The mass is 10 kg: F − 100μ = 10, and 2F − 100μ = 100. Solving gives μ = 0.8, matching option A and the saved answer; 0.4 is not supported.",
+    "student_reply": "Thanks for checking this carefully. The equations give μ = 0.8, which matches option A. Please review the force equations and let us know if you spot a specific issue."
+  },
+  {
+    "reportId": "R030",
+    "questionId": "6956d7e988d7701e5617bd3e",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.98,
+    "evidence": "With T = 16 s, ω = 2π/T = π/8 rad/s. Starting from equilibrium, the speed after 2 s is Aω|cos(ωt)| = A(π/8)(√2/2). Setting this equal to π m/s gives A = 8√2 m, matching option D and the saved answer. The reported 4√2 m is not supported by the calculation.",
+    "student_reply": "The amplitude works out to 8√2 m, which matches option D. The calculation uses the speed after 2 seconds and the given time period."
+  },
+  {
+    "reportId": "R031",
+    "questionId": "68dea619d0cda73d07e93aee",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.99,
+    "evidence": "From rest, the wheels’ angular displacements are θ₁ = (π/4)t² and θ₂ = (π/8)t². Their relative displacement is (π/8)t²; the dots first realign after it reaches 2π, giving t = 4 s. This agrees with the saved answer and solution.",
+    "student_reply": "The saved answer of 4 seconds is consistent: the dots first realign when the wheels’ relative angular displacement reaches one full turn."
+  },
+  {
+    "reportId": "R032",
+    "questionId": "68dea7c2387eea3d0d95f9bb",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.99,
+    "evidence": "The solution gives a shift of 0.08 m, which is 8 cm. The question asks for the shift in centimetres, so the saved integer answer 8 is consistent.",
+    "student_reply": "0.08 m ko centimetres mein badalne par 8 cm milta hai, isliye answer 8 hai."
+  },
+  {
+    "reportId": "R033",
+    "questionId": "68dea715387eea3d0d95f790",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.99,
+    "evidence": "Checked the calculation and significant figures: 6(7.203 m)² = 311.299254 m², which rounds to 311.3 m² at four significant figures. Thus A = 311.3 and 10A = 3113. The reported 3112.99 is the unrounded result multiplied by 10.",
+    "student_reply": "The unrounded value is about 3112.99, but the question asks you to use the correct significant digits. That gives A = 311.3 m² and 10A = 3113."
+  },
+  {
+    "reportId": "R034",
+    "questionId": "695ee00b88d7701e561aabc5",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "D",
+      "replace": "C"
+    },
+    "route": "auto_apply",
+    "confidence": 0.99,
+    "evidence": "The assertion is true: for equal individual intensities and phase difference π/2, the resultant intensity is 2I₀ cos²(π/4) = I₀. The reason is false because interference intensity is not always the sum of individual intensities for every non-zero phase difference. Thus option C is correct, while the saved answer D is wrong. The solution also contradicts itself, but the suggested edit is limited to the saved answer. Separate question-only check confirmed the exact proposed edit.",
+    "student_reply": "You’re right that the assertion is true. The reason is false as stated, so the correct choice is C. Thanks for pointing this out; the answer key can be reviewed."
+  },
+  {
+    "reportId": "R035",
+    "questionId": "66fe9dbe22132e5a70a3e579",
+    "verdict": "defect",
+    "repair": "solution_fix",
+    "edit": {
+      "field": "solution",
+      "find": "Insulin and glucagon work synergistically to keep blood glucose concentrations normal.",
+      "replace": "Insulin and glucagon work antagonistically to regulate blood glucose concentrations."
+    },
+    "route": "auto_apply",
+    "confidence": 0.98,
+    "evidence": "The keyed answer D is supported: relaxin and inhibin have different functions and are not antagonistic. However, the saved solution incorrectly says insulin and glucagon work synergistically; they have opposing effects on blood glucose. This is a solution error, not an error in the keyed answer. Separate question-only check confirmed the exact proposed edit.",
+    "student_reply": "Thanks for flagging this. The keyed choice appears correct, but the explanation contains an inaccurate statement about insulin and glucagon. We’ll refer that for faculty review."
+  },
+  {
+    "reportId": "R036",
+    "questionId": "60ca4feb6420652745f55522",
+    "verdict": "display_issue",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.94,
+    "evidence": "The saved question includes all four options, and the answer and solution are consistent. The report describes options being cut off on a phone screen, which points to a rendering or layout issue rather than incorrect question content; the specific display problem cannot be verified from the saved record.",
+    "student_reply": "Sorry the options are cut off on your phone. The saved question includes all options; please share your device and app details so the display issue can be reviewed."
+  },
+  {
+    "reportId": "R037",
+    "questionId": "68c9ae5afb6b2f16e2d43b1c",
+    "verdict": "display_issue",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.86,
+    "evidence": "The comment reports that the question takes a long time to load, which concerns loading or display rather than the academic content. The saved question, keyed answer, and solution are consistent: the photon energy is 3.1 eV, so the maximum kinetic energy and stopping potential are 1.1 eV and 1.1 V (D). The loading problem cannot be verified from the saved record.",
+    "student_reply": "Sorry the question is taking a long time to load. Please try again later or contact support if the problem continues."
+  },
+  {
+    "reportId": "R038",
+    "questionId": "68f21df0941cda588bc0470b",
+    "verdict": "app_issue",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.97,
+    "evidence": "The saved answer is A, and the solution confirms that momentum doubles when kinetic energy becomes four times its initial value, matching option A. The report describes the platform saving a different selection, not an error in the question content.",
+    "student_reply": "The saved answer is A, which matches the solution. It sounds like your selection may not have been recorded correctly; please try again, and contact support if it happens again."
+  },
+  {
+    "reportId": "R039",
+    "questionId": "68c801bc1b1dbc16dc93bf2b",
+    "verdict": "language_mode",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.99,
+    "evidence": "The comment asks for the question in Hindi. The saved question is in English; no academic error is reported or indicated by the saved content.",
+    "student_reply": "We understand you’d prefer this question in Hindi. Please check whether a Hindi version is available."
+  },
+  {
+    "reportId": "R040",
+    "questionId": "6264197209f4fd65f58f5707",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.98,
+    "evidence": "The question asks which food can help prevent vitamin A deficiency-related blindness. Golden rice is engineered to produce beta-carotene, a precursor of vitamin A, so option C and the saved answer are correct. The comment gives no specific contrary claim.",
+    "student_reply": "Thanks for flagging this. Golden rice is the correct answer because it provides beta-carotene, which the body can convert to vitamin A."
+  },
+  {
+    "reportId": "R041",
+    "questionId": "6208e298fa399567e0878700",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.99,
+    "evidence": "The report comment, “asdfgh,” is unintelligible and does not identify a problem. The saved question, keyed answer (A), and solution are consistent with one another; no specific defect is supported by the report.",
+    "student_reply": "Thanks for your report. Could you tell us what issue you noticed so we can review it?"
+  },
+  {
+    "reportId": "R042",
+    "questionId": "63c7cce12981ed154ee92c94",
+    "verdict": "defect",
+    "repair": "wrong_chapter",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.99,
+    "evidence": "The question asks about displacement current in a charging capacitor, which is an electromagnetism topic, not geometrical optics. The supplied chapter is therefore mismatched. The calculation and keyed option C (2.2 μA) are consistent with the given values. Faculty review needed: This repair requires faculty authorship.",
+    "student_reply": "Thanks for flagging this. The chapter assignment appears incorrect; it can be reviewed by the faculty team."
+  },
+  {
+    "reportId": "R043",
+    "questionId": "636283dbe3770c24f866e6d6",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.99,
+    "evidence": "Checked the saved question, solution, and keyed option B. Combining 64 equal drops gives a radius 4 times the original and total charge 64 times as large, so the surface charge density ratio is 64/4² = 4:1. The comment's 1:4 reverses the ratio; the larger drop has more total surface area, but its charge increases by a greater factor.",
+    "student_reply": "The saved solution gives a ratio of 4:1: the combined drop has 64 times the charge and 16 times the surface area. Option B is consistent with that result."
+  },
+  {
+    "reportId": "R044",
+    "questionId": "68dea577d0cda73d07e9391c",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.99,
+    "evidence": "Checked the potential difference using the uniform solid-sphere formulas. With the surface-to-infinity potential difference equal to 16 V, kQ/R = 16 V. At r=R/2, the sphere's potential relative to infinity is (11/8)kQ/R = 22 V; at r=2R, it is (1/2)kQ/R = 8 V. Their difference is 14 V, matching the saved answer. The 22 V value is the potential at P relative to infinity, not the requested difference between P and S.",
+    "student_reply": "Thanks for flagging this. 22 V is the potential at P relative to infinity; the potential at S is 8 V relative to infinity, so the difference is 14 V."
+  }
+]
